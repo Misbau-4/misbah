@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ─── Haffer XH-TRIAL (drop font files into src/assets/fonts/) ── */
+@font-face {
+  font-family: 'Haffer XH-TRIAL';
+  src: url('/src/assets/fonts/HafferXHTRIAL-Regular.woff2') format('woff2'),
+       url('/src/assets/fonts/HafferXHTRIAL-Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design tokens ──────────────────────────────────────── */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-bg:      #ffffff;
+  --color-fg:      #0d0d0d;
+  --color-muted:   #6b6b6b;
+  --color-border:  #e5e5e5;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ─── Base reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  overflow-x: hidden;
+}
+
+/* ─── Hero section spacing (exact Figma values) ─────────── */
+.hero-text {
+  /* mobile */
+  margin-top: 48px;
+  margin-left: 0;
+  padding-left: 20px;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .hero-text {
+    margin-top: 100px;
+    padding-left: 44px;
+    font-size: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text {
+    /* desktop — exact Figma spec */
+    margin-top: 228px;
+    padding-left: 88px;
+    font-size: 80px;
+  }
+}
+
+/* ─── Reusable max-width container ──────────────────────── */
+.site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Navbar — header bg is full-width; padding lives on   */
+/* the inner .navbar-inner wrapper that uses site-container  */
+
+.navbar-inner {
+  /* mobile */
+  padding-top: 16px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 640px) {
+  .navbar-inner {
+    padding-top: 32px;
+    padding-bottom: 24px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-inner {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f0f0f0; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
