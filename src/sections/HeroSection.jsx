@@ -96,9 +96,10 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full"
+      className="relative w-full min-h-[100dvh] -mt-[55px] sm:-mt-[80px] lg:-mt-[64px] flex flex-col justify-center"
       /* overflow-x hidden so the preview card never makes a scrollbar */
       style={{ overflowX: 'clip' }}
+      onMouseLeave={hidePreview}
     >
       {/* ── Floating cursor-tracking preview card ────────── */}
       <div
@@ -130,6 +131,7 @@ export default function HeroSection() {
             letterSpacing: '-0.01em',
             color: '#0d0d0d',
           }}
+          onMouseLeave={hidePreview}
         >
           {/* Line 1 */}
           <span>Great Features are </span>

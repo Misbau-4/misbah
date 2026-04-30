@@ -2,11 +2,10 @@
  * Navbar.jsx
  *
  * Section: Navigation
- * Animation: GSAP — entrance slide-down + fade-in on mount.
- *            Scroll-triggered: a 1px bottom border fades in once
- *            the user scrolls past 10px (pure CSS transition via
- *            React state toggle — simpler than GSAP for a single
- *            property that's already driven by a scroll listener).
+ * Animation: GSAP — Directionally-aware entrance animation.
+ *            Nav children stagger-slide in from the top on mount.
+ *            Uses useGSAP() for automatic cleanup + gsap.matchMedia()
+ *            for prefers-reduced-motion accessibility.
  * Clock: live UTC/GMT, updates every second via setInterval.
  * Responsive:
  *   mobile  (<640px)  — name only on left, icon + links on right;
@@ -17,6 +16,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 import Container from '../components/Container'
 
 /* ── Sparkle / 4-pointed star SVG (matches Figma icon) ────── */
@@ -72,23 +72,35 @@ function useGMTClock() {
 export default function Navbar() {
   const navRef = useRef(null)
   const time = useGMTClock()
-  const [scrolled, setScrolled] = useState(false)
 
-  /* GSAP: slide down + fade in on mount */
-  useEffect(() => {
-    gsap.fromTo(
-      navRef.current,
-      { y: -24, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.75, ease: 'power3.out', delay: 0.1 }
-    )
-  }, [])
+  /* ── Directionally-aware entrance animation via useGSAP ─── */
+  useGSAP(() => {
+    const mm = gsap.matchMedia()
 
-  /* Scroll listener: toggle border */
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      /* Stagger each nav child from the top */
+      const children = navRef.current?.querySelectorAll(
+        '#nav-identity, #nav-links > *'
+      )
+      if (!children?.length) return
+
+      gsap.set(navRef.current, { opacity: 1 })
+
+      gsap.from(children, {
+        y: -32,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power3.out',
+        delay: 0.15,
+      })
+    })
+
+    /* Reduced motion: just show instantly */
+    mm.add('(prefers-reduced-motion: reduce)', () => {
+      gsap.set(navRef.current, { opacity: 1 })
+    })
+  }, { scope: navRef })
 
   const navLinks = [
     { label: 'Works', href: '#works' },
@@ -103,10 +115,7 @@ export default function Navbar() {
         /* Full-width fixed bar — bg spans edge-to-edge */
         'navbar',
         'fixed top-0 left-0 right-0 z-50',
-        'bg-white',
-        /* Border fades in on scroll */
-        'border-b transition-colors duration-300',
-        scrolled ? 'border-[#e5e5e5]' : 'border-transparent',
+        'bg-white opacity-0',
       ].join(' ')}
     >
       {/* Inner row — capped at 1280px, carries the padding */}
