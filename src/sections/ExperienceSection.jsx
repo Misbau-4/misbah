@@ -196,13 +196,13 @@ export default function ExperienceSection() {
             align-items: flex-start; gap: 8px; flex: 1;
           }
           .exp-title {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 40px; text-transform: uppercase; color: #131313; display: block;
           }
           .exp-duration {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(14px, 1.2vw, 17px);
             line-height: 24px; text-transform: uppercase; color: #131313; display: block;
@@ -222,7 +222,7 @@ export default function ExperienceSection() {
             background: none; border: none; cursor: pointer;
           }
           .exp-cta-text {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 40px; text-decoration: underline;
@@ -235,7 +235,7 @@ export default function ExperienceSection() {
             width: clamp(280px, 40vw, 534px); flex-shrink: 0;
           }
           .exp-desc {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 120%; margin: 0;
@@ -279,13 +279,13 @@ export default function ExperienceSection() {
             display: flex; flex-direction: column; gap: 44px; width: 100%;
           }
           .exp-mobile-desc-grey {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(16px, 4.5vw, 18px);
             line-height: 140%; color: #999999; margin: 0; width: 100%;
           }
           .exp-mobile-desc-dark {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(16px, 4.5vw, 18px);
             line-height: 140%; color: #131313; margin: 0; width: 100%;
@@ -301,13 +301,13 @@ export default function ExperienceSection() {
             align-items: flex-start; gap: 4px; width: 100%;
           }
           .exp-mobile-title {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(14px, 4vw, 16px);
             line-height: 120%; text-transform: uppercase; color: #131313; display: block;
           }
           .exp-mobile-duration {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(12px, 3.5vw, 14px);
             line-height: 24px; text-transform: uppercase; color: #131313; display: block;
@@ -327,7 +327,7 @@ export default function ExperienceSection() {
             background: none; border: none; cursor: pointer; padding: 0;
           }
           .exp-mobile-cta-text {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(14px, 4vw, 16px);
             line-height: 120%; text-decoration: underline;

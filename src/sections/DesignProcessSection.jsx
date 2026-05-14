@@ -134,14 +134,14 @@ export default function DesignProcessSection() {
             width: clamp(480px, 65vw, 782px);
           }
           .dp-heading {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(28px, 2.8vw, 40px);
             line-height: 120%; letter-spacing: -0.01em;
             color: #131313; margin: 0;
           }
           .dp-subtext {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 120%; color: #222222; margin: 0;
@@ -168,14 +168,14 @@ export default function DesignProcessSection() {
             align-items: center; gap: clamp(24px, 8vw, 127px); flex: 1;
           }
           .dp-num {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 120%; color: #131313;
             flex-shrink: 0; min-width: 23px;
           }
           .dp-title {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(16px, 1.5vw, 24px);
             line-height: 120%; color: #131313; flex: 1;
@@ -214,7 +214,7 @@ export default function DesignProcessSection() {
 
           /* Heading: Haffer XH-TRIAL 22px, line-height 26px */
           .dp-mobile-heading {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(20px, 5.5vw, 22px);
             line-height: 26px; letter-spacing: -0.01em;
@@ -224,7 +224,7 @@ export default function DesignProcessSection() {
 
           /* Description: Haffer-TRIAL 16px, line-height 140% */
           .dp-mobile-desc {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(14px, 4vw, 16px);
             line-height: 140%; color: #222222; margin: 0;
@@ -251,7 +251,7 @@ export default function DesignProcessSection() {
 
           /* Step text: Haffer-TRIAL 14px */
           .dp-mobile-step-text {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(13px, 3.7vw, 14px);
             line-height: 120%; color: #131313; flex: 1;

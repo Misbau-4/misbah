@@ -239,7 +239,7 @@ export default function BrandSection() {
             background: #F7F7F7; flex-shrink: 0;
           }
           .brands-header-text {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 120%;
@@ -262,7 +262,7 @@ export default function BrandSection() {
             box-sizing: border-box;
           }
           .brands-slot-text-desktop {
-            font-family: 'Haffer XH-TRIAL', 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             line-height: 1; color: #131313;
             display: block; white-space: nowrap;
           }
@@ -293,7 +293,7 @@ export default function BrandSection() {
             background: #F7F7F7;
           }
           .brands-mobile-pill-text {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(10px, 3vw, 12px);
             line-height: 14px;
@@ -323,7 +323,7 @@ export default function BrandSection() {
             padding: 16px 16px;
           }
           .brands-mobile-slot-text {
-            font-family: 'Haffer XH-TRIAL', 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             line-height: 1;
             color: #131313;
             display: block;

@@ -119,7 +119,7 @@ export default function ToolStackSection() {
             width: 100%; max-width: 1200px;
           }
           .ts-intro {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(20px, 2vw, 28px);
             line-height: 120%; color: #131313; margin: 0; width: 100%;
@@ -130,7 +130,7 @@ export default function ToolStackSection() {
             width: 100%; gap: 40px; flex-wrap: wrap;
           }
           .ts-title {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 40px; color: #131313; min-width: 145px;
@@ -142,7 +142,7 @@ export default function ToolStackSection() {
             justify-content: space-between; flex-wrap: wrap;
           }
           .ts-desc {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 120%; color: #999999; margin: 0;
@@ -154,7 +154,7 @@ export default function ToolStackSection() {
             column-gap: 24px; row-gap: 24px;
           }
           .ts-tool {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(16px, 1.5vw, 24px);
             line-height: 120%; color: #0E0E0E;
@@ -178,7 +178,7 @@ export default function ToolStackSection() {
 
           /* Intro: 16px, line-height 140% */
           .ts-mobile-intro {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: 16px;
             line-height: 140%; color: #131313; margin: 0; width: 100%;
@@ -193,7 +193,7 @@ export default function ToolStackSection() {
 
           /* Section title: Haffer-TRIAL 18px */
           .ts-mobile-section-title {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: 18px;
             line-height: 120%; color: #131313; display: block;
@@ -207,7 +207,7 @@ export default function ToolStackSection() {
 
           /* Description: 16px, line-height 120% */
           .ts-mobile-desc {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: 16px;
             line-height: 120%; color: #0E0E0E; margin: 0; width: 100%;
@@ -223,7 +223,7 @@ export default function ToolStackSection() {
           }
 
           .ts-mobile-tool {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: 16px;
             line-height: 140%; color: #999999; display: block;

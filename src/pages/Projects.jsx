@@ -225,7 +225,7 @@ export default function Projects() {
           width: 100%;
         }
         .proj-name {
-          font-family: 'Haffer-TRIAL', sans-serif;
+          font-family: var(--font-custom);
           font-weight: 700;
           font-size: 17px;
           line-height: 24px;
@@ -241,7 +241,7 @@ export default function Projects() {
           text-decoration: none;
         }
         .proj-link-text {
-          font-family: 'Haffer-TRIAL', sans-serif;
+          font-family: var(--font-custom);
           font-weight: 400;
           font-size: 17px;
           line-height: 24px;
@@ -261,7 +261,7 @@ export default function Projects() {
           cursor: pointer;
         }
         .filter-name {
-          font-family: 'Haffer-TRIAL', sans-serif;
+          font-family: var(--font-custom);
           font-size: 14px;
           line-height: 24px;
           transition: color 0.2s;
@@ -276,7 +276,7 @@ export default function Projects() {
           height: 25px;
           background: #F6F6F6;
           border-radius: 32px;
-          font-family: 'Haffer-TRIAL', sans-serif;
+          font-family: var(--font-custom);
           font-weight: 400;
           font-size: 14px;
           line-height: 120%;
@@ -300,7 +300,7 @@ export default function Projects() {
             margin: 0 auto;
           }
           .projects-title {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(48px, 6vw, 78.25px);
             line-height: 120%;
@@ -366,7 +366,7 @@ export default function Projects() {
 
           /* Title: Haffer XH-TRIAL 32px, letter-spacing -0.02em */
           .projects-title {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(28px, 8vw, 32px);
             line-height: 120%;

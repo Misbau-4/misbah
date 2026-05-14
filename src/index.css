@@ -65,6 +65,7 @@ html.lenis, html.lenis body {
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-custom: 'Haffer-TRIAL', sans-serif;
+  --font-custom-xh: 'Haffer XH-TRIAL', sans-serif;
 
   --color-bg:      #ffffff;
   --color-fg:      #0d0d0d;

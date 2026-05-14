@@ -133,7 +133,7 @@ export default function Footer() {
 
           .footer-cta {
             max-width: 500px;
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(36px, 4vw, 56px);
             line-height: 100%; letter-spacing: -0.02em; color: #131313;
@@ -145,7 +145,7 @@ export default function Footer() {
             width: 100%; flex-wrap: wrap; gap: 24px;
           }
           .footer-copy {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400; font-size: 16px; line-height: 20px;
             letter-spacing: 0.28px; color: #131313;
           }
@@ -154,7 +154,7 @@ export default function Footer() {
             align-items: center; flex-wrap: wrap; gap: 24px;
           }
           .footer-link {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400; font-size: clamp(14px, 1.2vw, 18px); line-height: 40px;
             text-decoration: underline; text-transform: capitalize; color: #131313;
           }
@@ -186,7 +186,7 @@ export default function Footer() {
 
           /* Heading: 32px, line-height 110%, letter-spacing -0.02em */
           .footer-mobile-cta {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(24px, 8vw, 32px);
             line-height: 110%; letter-spacing: -0.02em; color: #131313;
@@ -210,14 +210,14 @@ export default function Footer() {
             flex-wrap: wrap;
           }
           .footer-mobile-link {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400; font-size: 14px; line-height: 120%;
             text-decoration: underline; text-transform: capitalize; color: #131313;
           }
 
           /* Copyright: 14px */
           .footer-mobile-copy {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400; font-size: 14px; line-height: 20px;
             letter-spacing: 0.28px; color: #131313;
           }

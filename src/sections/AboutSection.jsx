@@ -102,7 +102,7 @@ function PanelMerged({ textRef }) {
              
              <div className="text-merged-understanding">
                <span style={{ color: '#9295FE', fontFamily: 'Nohemi', marginRight: '16px' }}>understanding</span>
-               <span style={{ color: '#131313', fontFamily: 'Haffer XH-TRIAL', fontWeight: 500 }}>is</span>
+               <span style={{ color: '#131313', fontFamily: 'var(--font-custom-xh)', fontWeight: 500 }}>is</span>
              </div>
              
              <div className="frame-1321315526">
@@ -440,7 +440,7 @@ export default function AboutSection() {
         }
         .text-000-main {
           width: 771px; height: 174px;
-          font-family: 'Haffer-TRIAL', sans-serif;
+          font-family: var(--font-custom);
           font-weight: 400;
           font-size: clamp(32px, 3.7vw, 48px);
           line-height: 120%; color: #181818;
@@ -479,7 +479,7 @@ export default function AboutSection() {
         }
         .text-merged-I, .text-merged-build, .text-merged-digital,
         .text-merged-effortless, .text-merged-understanding, .text-merged-instant {
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-weight: 500;
+          font-family: var(--font-custom-xh); font-weight: 500;
           font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
           color: #131313; white-space: nowrap; height: 94px;
         }
@@ -497,7 +497,7 @@ export default function AboutSection() {
           height: 94px; position: relative; display: flex; align-items: center;
         }
         .text-merged-instant {
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-weight: 500;
+          font-family: var(--font-custom-xh); font-weight: 500;
           font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
           color: #01CB70; white-space: nowrap;
         }
@@ -547,7 +547,7 @@ export default function AboutSection() {
 
           /* Intro text: Haffer-TRIAL, 28px → clamp for all sizes */
           .about-mobile-intro {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-style: normal;
             font-weight: 400;
             font-size: clamp(20px, 5.5vw, 28px);
@@ -559,7 +559,7 @@ export default function AboutSection() {
 
           /* Desc text: Haffer XH-TRIAL, 28px → clamp */
           .about-mobile-desc {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-style: normal;
             font-weight: 400;
             font-size: clamp(20px, 5.5vw, 28px);

@@ -141,7 +141,7 @@ function MobileMenuOverlay({ isOpen, onClose }) {
             <div
               ref={projectsRef}
               className="w-full text-center text-[48px] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
-              style={{ fontFamily: "'Haffer-TRIAL', sans-serif", opacity: activePreview === 'projects' ? 1 : 1 }}
+              style={{ fontFamily: 'var(--font-custom)', opacity: activePreview === 'projects' ? 1 : 1 }}
               onClick={() => setActivePreview('projects')}
             >
               Projects
@@ -173,7 +173,7 @@ function MobileMenuOverlay({ isOpen, onClose }) {
             <div
               ref={aboutRef}
               className="w-full text-center text-[48px] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
-              style={{ fontFamily: "'Haffer-TRIAL', sans-serif", opacity: activePreview === 'about' ? 1 : 1 }}
+              style={{ fontFamily: 'var(--font-custom)', opacity: activePreview === 'about' ? 1 : 1 }}
               onClick={() => setActivePreview('about')}
             >
               About
@@ -285,8 +285,8 @@ export default function Navbar() {
             style={{ textDecoration: 'none' }}
             aria-label="Go to home page"
           >
-            <span style={{ fontFamily: "'Haffer VF-TRIAL', sans-serif" }}>Musbaudeen</span>
-            <span className="hidden lg:inline" style={{ fontFamily: "'Haffer VF-TRIAL', sans-serif" }}>
+            <span style={{ fontFamily: 'var(--font-custom-xh)' }}>Musbaudeen</span>
+            <span className="hidden lg:inline" style={{ fontFamily: 'var(--font-custom-xh)' }}>
               &nbsp;|&nbsp;{time}
             </span>
           </Link>
@@ -303,7 +303,7 @@ export default function Navbar() {
                   key={label}
                   to={href}
                   className="text-base font-normal text-[#0d0d0d] relative after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-[#0d0d0d] after:transition-[width] after:duration-300 hover:after:w-full transition-opacity duration-200 hover:opacity-70"
-                  style={{ fontFamily: "'Haffer VF-TRIAL', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-custom-xh)' }}
                 >
                   {label}
                 </Link>
@@ -312,7 +312,7 @@ export default function Navbar() {
                   key={label}
                   href={href}
                   className="text-base font-normal text-[#0d0d0d] relative after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-[#0d0d0d] after:transition-[width] after:duration-300 hover:after:w-full transition-opacity duration-200 hover:opacity-70"
-                  style={{ fontFamily: "'Haffer VF-TRIAL', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-custom-xh)' }}
                 >
                   {label}
                 </a>

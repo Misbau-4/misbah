@@ -124,7 +124,7 @@ export default function HeroSection() {
         <h1
           className="hero-text font-normal"
           style={{
-            fontFamily: "'Haffer XH-TRIAL', 'DM Sans', 'Inter', system-ui, sans-serif",
+            fontFamily: 'var(--font-custom-xh), var(--font-sans)',
             fontWeight: 400,
             lineHeight: 1.15,
             letterSpacing: '-0.01em',

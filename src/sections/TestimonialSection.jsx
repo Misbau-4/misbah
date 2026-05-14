@@ -222,7 +222,7 @@ export default function TestimonialSection() {
             text-align: center;
           }
           .t-heading {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(28px, 3vw, 40px);
             line-height: 120%;
@@ -266,7 +266,7 @@ export default function TestimonialSection() {
           }
           .t-card-quote {
             width: 608px; height: 203px;
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(18px, 1.7vw, 24px);
             line-height: 120%;
@@ -287,7 +287,7 @@ export default function TestimonialSection() {
           }
           .t-card-name {
             width: 214px; height: 25px;
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 500;
             font-size: 20px;
             line-height: 25px;
@@ -297,7 +297,7 @@ export default function TestimonialSection() {
           }
           .t-card-role {
             width: 214px; height: 20px;
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: 17px;
             line-height: 20px;
@@ -321,7 +321,7 @@ export default function TestimonialSection() {
 
           /* Mobile heading: Figma 24px */
           .t-mobile-heading {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: clamp(20px, 5.5vw, 28px);
             line-height: 120%;
@@ -358,7 +358,7 @@ export default function TestimonialSection() {
             max-width: clamp(280px, 85vw, 400px);
           }
           .t-mobile-quote {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 400;
             font-size: clamp(14px, 4vw, 16px);
             line-height: 120%;
@@ -379,7 +379,7 @@ export default function TestimonialSection() {
             gap: 4px;
           }
           .t-mobile-name {
-            font-family: 'Haffer-TRIAL', sans-serif;
+            font-family: var(--font-custom);
             font-weight: 500;
             font-size: clamp(14px, 4vw, 16px);
             line-height: 156%;
@@ -389,7 +389,7 @@ export default function TestimonialSection() {
             display: block;
           }
           .t-mobile-role {
-            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-family: var(--font-custom-xh);
             font-weight: 400;
             font-size: 12px;
             line-height: 14px;

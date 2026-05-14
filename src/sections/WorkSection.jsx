@@ -234,7 +234,7 @@ export default function WorkSection() {
             to="/projects"
             className="flex items-center gap-[12px] group"
             style={{
-              fontFamily: "'Haffer-TRIAL', sans-serif",
+              fontFamily: 'var(--font-custom)',
               fontWeight: 400, fontSize: 'clamp(18px, 2vw, 28px)',
               lineHeight: '40px', textDecorationLine: 'underline',
               textTransform: 'capitalize', color: '#131313',
@@ -284,7 +284,7 @@ export default function WorkSection() {
             to="/projects"
             className="flex items-center gap-[8px]"
             style={{
-              fontFamily: "'Haffer-TRIAL', sans-serif",
+              fontFamily: 'var(--font-custom)',
               fontWeight: 400, fontSize: '16px',
               lineHeight: '140%', textDecoration: 'underline',
               textTransform: 'capitalize', color: '#131313',
