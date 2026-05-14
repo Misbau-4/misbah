@@ -320,6 +320,7 @@ export default function BrandSection() {
             flex: 1;
             height: 61px;
             overflow: hidden;
+            padding: 16px 16px;
           }
           .brands-mobile-slot-text {
             font-family: 'Haffer XH-TRIAL', 'Haffer-TRIAL', sans-serif;

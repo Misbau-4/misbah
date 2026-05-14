@@ -64,6 +64,7 @@ html.lenis, html.lenis body {
 /* ─── Design tokens ──────────────────────────────────────── */
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
+  --font-custom: 'Haffer-TRIAL', sans-serif;
 
   --color-bg:      #ffffff;
   --color-fg:      #0d0d0d;

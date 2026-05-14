@@ -44,7 +44,7 @@ function App() {
       {isPreloading && <Preloader onComplete={() => setIsPreloading(false)} />}
       <Navbar />
 
-      <main className="pt-[55px] sm:pt-[80px] lg:pt-[64px]">
+      <main className="font-custom pt-[55px] sm:pt-[80px] lg:pt-[64px]">
         {/* About — 3 panels with horizontal scroll pinning */}
         <AboutSection />
 
