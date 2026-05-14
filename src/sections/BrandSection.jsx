@@ -2,15 +2,18 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
+import acemyxImg from '../assets/Logo01.png'
+import campusXImg from '../assets/Logo02.png'
+import fleetKitImg from '../assets/Logo03.png'
+import loopRailImg from '../assets/Logo04.png'
+import studioneImg from '../assets/Logo05.png'
+
 const BRANDS = [
-  { name: 'AcemyX',    fontSize: 28, fontWeight: 700, letterSpacing: '-0.03em' },
-  { name: 'campusx',   fontSize: 26, fontWeight: 400, fontStyle: 'italic'      },
-  { name: 'Fleetkit',  fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em' },
-  { name: 'Looprail',  fontSize: 26, fontWeight: 400                            },
-  { name: 'Studione',  fontSize: 27, fontWeight: 400, letterSpacing: '-0.02em' },
-  { name: 'Nexus',     fontSize: 30, fontWeight: 700, letterSpacing: '-0.04em' },
-  { name: 'Lumina',    fontSize: 28, fontWeight: 300, letterSpacing: '0.05em'  },
-  { name: 'Stacklane', fontSize: 24, fontWeight: 500, letterSpacing: '-0.01em' },
+  { name: 'AcemyX',    src: acemyxImg, fontSize: 28, fontWeight: 700, letterSpacing: '-0.03em' },
+  { name: 'campusx',   src: campusXImg, fontSize: 26, fontWeight: 400, fontStyle: 'italic'      },
+  { name: 'Fleetkit',  src: fleetKitImg, fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em' },
+  { name: 'Looprail',  src: loopRailImg, fontSize: 26, fontWeight: 400                            },
+  { name: 'Studione',  src: studioneImg, fontSize: 27, fontWeight: 400, letterSpacing: '-0.02em' },
 ]
 
 /* Desktop: 5 slots. Mobile: 3 slots. */
@@ -18,11 +21,11 @@ const DESKTOP_SLOT_INDEXES = [0, 1, 2, 3, 4]
 const MOBILE_SLOT_INDEXES  = [0, 1, 2]
 
 const DESKTOP_SLOT_CONFIG = [
-  { width: 204, padding: '35px 44px 35px 43px' },
-  { width: 204, padding: '35px 33px'            },
-  { width: 204, padding: '39px 48px'            },
-  { width: 217, padding: '37px 50px 38px 49px'  },
-  { width: 217, padding: '39px 54px 39px 53px'  },
+  { width: 204, padding: '39px 48px' },
+  { width: 204, padding: '39px 48px' },
+  { width: 204, padding: '39px 48px' },
+  { width: 204, padding: '39px 48px' },
+  { width: 204, padding: '39px 48px' },
 ]
 
 const MOBILE_SLOT_CONFIG = [
@@ -59,11 +62,15 @@ export default function BrandSection() {
           }
 
           const applyBrandStyle = (brand) => {
-            el.style.fontSize      = `${brand.fontSize}px`
-            el.style.fontWeight    = brand.fontWeight
-            el.style.letterSpacing = brand.letterSpacing || 'normal'
-            el.style.fontStyle     = brand.fontStyle || 'normal'
-            el.textContent         = brand.name
+            if (brand.src) {
+              el.innerHTML = `<img src="${brand.src}" alt="${brand.name}" style="height: 30px; width: auto; object-fit: contain; display: block;" />`
+            } else {
+              el.style.fontSize      = `${brand.fontSize}px`
+              el.style.fontWeight    = brand.fontWeight
+              el.style.letterSpacing = brand.letterSpacing || 'normal'
+              el.style.fontStyle     = brand.fontStyle || 'normal'
+              el.textContent         = brand.name
+            }
           }
 
           const cycle = () => {
@@ -103,12 +110,16 @@ export default function BrandSection() {
           }
 
           const applyBrandStyle = (brand) => {
-            const scale = 0.75
-            el.style.fontSize      = `${Math.round(brand.fontSize * scale)}px`
-            el.style.fontWeight    = brand.fontWeight
-            el.style.letterSpacing = brand.letterSpacing || 'normal'
-            el.style.fontStyle     = brand.fontStyle || 'normal'
-            el.textContent         = brand.name
+            if (brand.src) {
+              el.innerHTML = `<img src="${brand.src}" alt="${brand.name}" style="height: 24px; width: auto; object-fit: contain; display: block;" />`
+            } else {
+              const scale = 0.75
+              el.style.fontSize      = `${Math.round(brand.fontSize * scale)}px`
+              el.style.fontWeight    = brand.fontWeight
+              el.style.letterSpacing = brand.letterSpacing || 'normal'
+              el.style.fontStyle     = brand.fontStyle || 'normal'
+              el.textContent         = brand.name
+            }
           }
 
           const cycle = () => {
@@ -156,7 +167,11 @@ export default function BrandSection() {
                   fontStyle:     BRANDS[DESKTOP_SLOT_INDEXES[i]].fontStyle || 'normal',
                 }}
               >
-                {BRANDS[DESKTOP_SLOT_INDEXES[i]].name}
+                {BRANDS[DESKTOP_SLOT_INDEXES[i]].src ? (
+                  <img src={BRANDS[DESKTOP_SLOT_INDEXES[i]].src} alt={BRANDS[DESKTOP_SLOT_INDEXES[i]].name} style={{ height: '30px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+                ) : (
+                  BRANDS[DESKTOP_SLOT_INDEXES[i]].name
+                )}
               </span>
             </div>
           ))}
@@ -182,7 +197,11 @@ export default function BrandSection() {
                   fontStyle:     BRANDS[MOBILE_SLOT_INDEXES[i]].fontStyle || 'normal',
                 }}
               >
-                {BRANDS[MOBILE_SLOT_INDEXES[i]].name}
+                {BRANDS[MOBILE_SLOT_INDEXES[i]].src ? (
+                  <img src={BRANDS[MOBILE_SLOT_INDEXES[i]].src} alt={BRANDS[MOBILE_SLOT_INDEXES[i]].name} style={{ height: '24px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+                ) : (
+                  BRANDS[MOBILE_SLOT_INDEXES[i]].name
+                )}
               </span>
             </div>
           ))}

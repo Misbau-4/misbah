@@ -21,6 +21,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Container from '../components/Container'
+import projectImage from '../assets/Work-4.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -140,7 +141,7 @@ function MobileMenuOverlay({ isOpen, onClose }) {
             <div
               ref={projectsRef}
               className="w-full text-center text-[48px] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
-              style={{ fontFamily: "'Haffer-TRIAL', sans-serif", opacity: activePreview === 'projects' ? 1 : 0.4 }}
+              style={{ fontFamily: "'Haffer-TRIAL', sans-serif", opacity: activePreview === 'projects' ? 1 : 1 }}
               onClick={() => setActivePreview('projects')}
             >
               Projects
@@ -152,7 +153,9 @@ function MobileMenuOverlay({ isOpen, onClose }) {
                 className="w-[181px] h-[132px] cursor-pointer transition-transform duration-200 hover:scale-105 rounded-[2px]"
                 onClick={handleImageClick}
                 style={{ 
-                  background: '#22C55E', 
+                  background: `url(${projectImage})`,
+                  backgroundSize: '100% 100%',
+                  backgroundPosition: 'center',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: '#fff', fontSize: '14px', fontWeight: 'bold'
                 }}
@@ -170,7 +173,7 @@ function MobileMenuOverlay({ isOpen, onClose }) {
             <div
               ref={aboutRef}
               className="w-full text-center text-[48px] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
-              style={{ fontFamily: "'Haffer-TRIAL', sans-serif", opacity: activePreview === 'about' ? 1 : 0.4 }}
+              style={{ fontFamily: "'Haffer-TRIAL', sans-serif", opacity: activePreview === 'about' ? 1 : 1 }}
               onClick={() => setActivePreview('about')}
             >
               About
@@ -182,7 +185,9 @@ function MobileMenuOverlay({ isOpen, onClose }) {
                 className="w-[181px] h-[132px] cursor-pointer transition-transform duration-200 hover:scale-105 rounded-[2px]"
                 onClick={handleImageClick}
                 style={{ 
-                  background: '#3B82F6', 
+                  background: `url(${projectImage})`,
+                  backgroundSize: '100% 100%',
+                  backgroundPosition: 'center',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: '#fff', fontSize: '14px', fontWeight: 'bold'
                 }}
