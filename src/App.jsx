@@ -18,10 +18,30 @@ import ToolStackSection from './sections/ToolStackSection'
 import ColorCardsSection from './sections/ColorCardsSection'
 import WorkSection from './sections/WorkSection'
 import Footer      from './sections/Footer'
+import Preloader   from './components/Preloader'
+import { useLenis } from 'lenis/react'
+import { createContext, useState, useEffect } from 'react'
+
+export const PreloadContext = createContext({ isPreloading: true })
 
 function App() {
+  const [isPreloading, setIsPreloading] = useState(true)
+  const lenis = useLenis()
+
+  useEffect(() => {
+    if (isPreloading) {
+      lenis?.stop()
+      document.body.style.overflow = 'hidden'
+      window.scrollTo(0, 0)
+    } else {
+      lenis?.start()
+      document.body.style.overflow = ''
+    }
+  }, [isPreloading, lenis])
+
   return (
-    <>
+    <PreloadContext.Provider value={{ isPreloading }}>
+      {isPreloading && <Preloader onComplete={() => setIsPreloading(false)} />}
       <Navbar />
 
       <main className="pt-[55px] sm:pt-[80px] lg:pt-[64px]">
@@ -66,7 +86,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </PreloadContext.Provider>
   )
 }
 

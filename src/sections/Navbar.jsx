@@ -14,8 +14,9 @@
  *   desktop (1024px+)  — same as tablet with wider horizontal padding.
  */
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { PreloadContext } from '../App'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -207,6 +208,7 @@ export default function Navbar() {
   const navRef = useRef(null)
   const time = useGMTClock()
   const [menuOpen, setMenuOpen] = useState(false)
+  const { isPreloading } = useContext(PreloadContext)
 
   /* ── Scroll-aware hide/show ─────────────────────────────── */
   useEffect(() => {
@@ -234,6 +236,11 @@ export default function Navbar() {
 
   /* ── Directionally-aware entrance animation via useGSAP ─── */
   useGSAP(() => {
+    if (isPreloading) {
+      gsap.set(navRef.current, { opacity: 0 })
+      return
+    }
+
     const mm = gsap.matchMedia()
     mm.add('(prefers-reduced-motion: no-preference)', () => {
       const children = navRef.current?.querySelectorAll('#nav-identity, #nav-links > *')
@@ -244,7 +251,7 @@ export default function Navbar() {
     mm.add('(prefers-reduced-motion: reduce)', () => {
       gsap.set(navRef.current, { opacity: 1 })
     })
-  }, { scope: navRef })
+  }, { scope: navRef, dependencies: [isPreloading] })
 
   /* Lock body scroll when menu open */
   useEffect(() => {

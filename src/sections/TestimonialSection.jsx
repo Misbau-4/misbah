@@ -1,10 +1,9 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Observer } from 'gsap/Observer'
 
-gsap.registerPlugin(ScrollTrigger, Observer)
+gsap.registerPlugin(ScrollTrigger)
 import avatar1 from '../assets/Avatar1.png'
 import avatar2 from '../assets/Avatar2.png'
 import avatar3 from '../assets/Avatar3.png'
@@ -42,13 +41,13 @@ const TESTIMONIALS = [
 export default function TestimonialSection() {
   const sectionRef      = useRef(null)
   const cardRefs        = useRef([])
-  const [mobileIndex, setMobileIndex] = useState(0)
-  const mobileTrackRef  = useRef(null)
+  const mobileCardRefs  = useRef([])
 
   /* ── Desktop: GSAP scroll-pinned crossfade ── */
   useGSAP(
     () => {
       const cards = cardRefs.current
+      const mCards = mobileCardRefs.current
       if (!cards.length) return
 
       const mm = gsap.matchMedia()
@@ -76,16 +75,29 @@ export default function TestimonialSection() {
         })
       })
 
-      /* Mobile: swipe via Observer */
+      /* Mobile: GSAP scroll-pinned crossfade ── */
       mm.add('(max-width: 1023px) and (prefers-reduced-motion: no-preference)', () => {
-        if (!mobileTrackRef.current) return
-        Observer.create({
-          target: mobileTrackRef.current,
-          type: 'touch,pointer',
-          onLeft:  () => setMobileIndex(i => Math.min(i + 1, TESTIMONIALS.length - 1)),
-          onRight: () => setMobileIndex(i => Math.max(i - 1, 0)),
-          tolerance: 40,
-          preventDefault: false,
+        if (!mCards.length) return
+        
+        gsap.set(mCards,    { autoAlpha: 0, y: 40 })
+        gsap.set(mCards[0], { autoAlpha: 1, y: 0  })
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger:       sectionRef.current,
+            start:         'top top',
+            end:           `+=${(TESTIMONIALS.length - 1) * 120}vh`,
+            pin:           true,
+            scrub:         1,
+            anticipatePin: 1,
+          },
+        })
+
+        TESTIMONIALS.forEach((_, i) => {
+          if (i === 0) return
+          tl.to(mCards[i - 1], { autoAlpha: 0, y: -32, duration: 1, ease: 'power2.inOut' })
+            .fromTo(mCards[i], { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 1, ease: 'power2.out' }, '<0.2')
+            .to({}, { duration: 0.6 })
         })
       })
     },
@@ -135,36 +147,18 @@ export default function TestimonialSection() {
           <span>+20</span> founders.
         </h2>
 
-        {/* Carousel */}
-        <div ref={mobileTrackRef} className="t-mobile-carousel-wrap">
-          <div
-            className="t-mobile-carousel-track"
-            style={{ transform: `translateX(calc(-${mobileIndex * 100}%))` }}
-          >
-            {TESTIMONIALS.map(t => (
-              <div key={t.id} className="t-mobile-slide">
-                <div className="t-mobile-card">
-                  <p className="t-mobile-quote">{t.quote}</p>
-                  <div className="t-mobile-author">
-                    <span className="t-mobile-name">{t.name}</span>
-                    <span className="t-mobile-role">{t.role}</span>
-                  </div>
+        {/* Card Stage */}
+        <div className="t-mobile-card-stage">
+          {TESTIMONIALS.map((t, i) => (
+            <div key={t.id} ref={el => (mobileCardRefs.current[i] = el)} className="t-mobile-card-wrapper">
+              <div className="t-mobile-card">
+                <p className="t-mobile-quote">{t.quote}</p>
+                <div className="t-mobile-author">
+                  <span className="t-mobile-name">{t.name}</span>
+                  <span className="t-mobile-role">{t.role}</span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Dots */}
-        <div className="t-mobile-dots">
-          {TESTIMONIALS.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Go to testimonial ${i + 1}`}
-              onClick={() => setMobileIndex(i)}
-              className="t-mobile-dot"
-              style={{ background: i === mobileIndex ? '#131313' : '#D9D9D9' }}
-            />
+            </div>
           ))}
         </div>
       </div>
@@ -293,20 +287,21 @@ export default function TestimonialSection() {
           }
           .t-mobile-heading span { color: #131313; }
 
-          /* Carousel */
-          .t-mobile-carousel-wrap {
-            overflow: hidden;
+          /* Card Stage */
+          .t-mobile-card-stage {
+            position: relative;
             width: 100%;
-            padding: 0 16px;
-            box-sizing: border-box;
-          }
-          .t-mobile-carousel-track {
+            height: 380px;
             display: flex;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform;
+            justify-content: center;
+            overflow: hidden;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
           }
-          .t-mobile-slide {
-            flex: 0 0 100%;
+          .t-mobile-card-wrapper {
+            position: absolute;
+            top: 24px;
+            width: 100%;
             display: flex;
             justify-content: center;
           }
@@ -347,15 +342,6 @@ export default function TestimonialSection() {
             display: block;
           }
 
-          /* Dots */
-          .t-mobile-dots {
-            display: flex; align-items: center; gap: 8px;
-          }
-          .t-mobile-dot {
-            width: 12px; height: 12px;
-            border-radius: 50%; border: none;
-            cursor: pointer; padding: 0;
-            transition: background 0.3s;
           }
         }
 
