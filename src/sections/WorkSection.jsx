@@ -1,155 +1,55 @@
 import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger, Flip, Observer } from 'gsap/all'
+import image1 from '../assets/Fleetkit.png'
+import image2 from '../assets/Acemyx.png'
+import image3 from '../assets/Looprail.png'
 
 gsap.registerPlugin(ScrollTrigger, Flip, Observer)
 
 const PROJECTS = [
-  {
-    id: 'fleekit',
-    name: 'Fleetkit',
-    year: '2025',
-    tags: ['Ecommerce', 'Web App', 'Figma'],
-    bgColor: '#CDEB45',
-  },
-  {
-    id: 'acemyx',
-    name: 'AcemyX',
-    year: '2023',
-    tags: ['EdTech', 'Landing-Page', 'Figma'],
-    bgColor: '#54FED1',
-  },
-  {
-    id: 'project3',
-    name: 'Creative',
-    year: '2024',
-    tags: ['Branding', 'UI Design', 'Figma'],
-    bgColor: '#7B61FF',
-  },
+  { id: 'fleekit',   name: 'Fleetkit', year: '2025', tags: ['Ecommerce', 'Web App', 'Figma'],      bg: image1, yearColor: '#54FED1' },
+  { id: 'acemyx',    name: 'AcemyX',   year: '2023', tags: ['EdTech', 'Landing-Page', 'Figma'],    bg: image2, yearColor: '#54FED1' },
+  { id: 'looprail',  name: 'Looprail', year: '2024', tags: ['E-commerce', 'Web App'],              bg: image3, yearColor: '#54FED1' },
 ]
 
-function ProjectCard({ project, index }) {
-  const offsets = [
-    { left: '43px', zIndex: 1 },
-    { left: 'calc(50% - 279.46px)', zIndex: 2 },
-    { left: '676px', zIndex: 1 },
-  ]
-  const pos = offsets[index] || offsets[0]
-
+function MobileProjectCard({ project }) {
   return (
     <div
-      className="project-card absolute cursor-grab active:cursor-grabbing"
-      data-flip-id={project.id}
+      className="mobile-project-card"
       style={{
-        width: '558.93px',
-        height: '423.5px',
-        left: pos.left,
-        top: 0,
-        zIndex: pos.zIndex,
+        width: '100%',
+        maxWidth: '343px',
         background: '#131313',
-        border: index === 1 ? '5.02031px solid #181818' : '5.02031px solid #131313',
+        border: '5.02031px solid #181818',
         borderRadius: '20.918px',
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
+        flexShrink: 0,
       }}
     >
-      {/* Media area (Top) */}
-      <div
-        style={{
-          width: '100%',
-          height: '317.87px',
-          background: project.bgColor,
-          flex: 'none',
-          borderRadius: '0px 0px 20.918px 20.918px',
-        }}
-      />
-
-      {/* Text area (Bottom) */}
-      <div
-        style={{
-          width: '100%',
-          height: '105.63px',
-          display: 'flex',
-          flexDirection: 'column',
-          flex: 'none',
-        }}
-      >
-        {/* Header row */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: '20.08px 20.08px 0px',
-            width: '100%',
-            height: '48.47px',
-            background: '#131313',
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10.04px', flexGrow: 1 }}>
-            <span
-              style={{
-                fontFamily: "'Instrument Sans', sans-serif",
-                fontWeight: 400,
-                fontSize: '20.918px',
-                lineHeight: '26px',
-                color: '#FDFDFD',
-              }}
-            >
-              {project.name}
+      {/* Media */}
+      <div style={{ width: '100%', aspectRatio: '343 / 213', borderRadius: '0 0 20.918px 20.918px', overflow: 'hidden' }}>
+        <img src={project.bg} alt={project.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      </div>
+      {/* Info */}
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '12px 20px 0', gap: '10px', background: '#131313' }}>
+          <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400, fontSize: '16px', lineHeight: '20px', color: '#FDFDFD' }}>
+            {project.name}
+          </span>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '6.69px 10px', background: '#1F1F1F', borderRadius: '20px' }}>
+            <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '15px', color: project.yearColor }}>
+              {project.year}
             </span>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '6.69px 10.04px',
-                background: '#1F1F1F',
-                borderRadius: '20.08px',
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "'Instrument Sans', sans-serif",
-                  fontWeight: 400,
-                  fontSize: '12.55px',
-                  lineHeight: '15px',
-                  color: project.bgColor, 
-                }}
-              >
-                {project.year}
-              </span>
-            </div>
           </div>
         </div>
-
-        {/* Tags row */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-end',
-            padding: '13.39px 20.08px 26.77px',
-            gap: '20.08px',
-            width: '100%',
-            height: '57.16px',
-            background: '#131313',
-          }}
-        >
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', padding: '13px 20px 20px', gap: '20px', background: '#131313' }}>
           {project.tags.map(tag => (
-            <span
-              key={tag}
-              style={{
-                fontFamily: "'Instrument Sans', sans-serif",
-                fontWeight: 400,
-                fontSize: '14.22px',
-                lineHeight: '17px',
-                color: '#6B6B6B',
-              }}
-            >
+            <span key={tag} style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400, fontSize: '12px', lineHeight: '15px', color: '#6B6B6B' }}>
               {tag}
             </span>
           ))}
@@ -159,79 +59,116 @@ function ProjectCard({ project, index }) {
   )
 }
 
-function ArrowRightIcon() {
+function DesktopProjectCard({ project, index }) {
+  const offsets = [
+    { left: '43px',                  zIndex: 1 },
+    { left: 'calc(50% - 279.46px)', zIndex: 2 },
+    { left: '676px',                 zIndex: 1 },
+  ]
+  const pos = offsets[index] || offsets[0]
+
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <div
+      className="project-card absolute cursor-grab active:cursor-grabbing"
+      data-flip-id={project.id}
+      style={{
+        width: '558.93px', height: '423.5px',
+        left: pos.left, top: 0, zIndex: pos.zIndex,
+        background: '#131313',
+        border: index === 1 ? '5.02031px solid #181818' : '5.02031px solid #131313',
+        borderRadius: '20.918px',
+        display: 'flex', flexDirection: 'column', overflow: 'hidden',
+      }}
+    >
+      <div style={{ width: '100%', height: '317.87px', flex: 'none', borderRadius: '0px 0px 20.918px 20.918px' }}>
+        <img src={project.bg} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      </div>
+      <div style={{ width: '100%', height: '105.63px', display: 'flex', flexDirection: 'column', flex: 'none' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '20.08px 20.08px 0px', width: '100%', height: '48.47px', background: '#131313' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10.04px', flexGrow: 1 }}>
+            <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400, fontSize: '20.918px', lineHeight: '26px', color: '#FDFDFD' }}>
+              {project.name}
+            </span>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '6.69px 10.04px', background: '#1F1F1F', borderRadius: '20.08px' }}>
+              <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400, fontSize: '12.55px', lineHeight: '15px', color: project.yearColor }}>
+                {project.year}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', padding: '13.39px 20.08px 26.77px', gap: '20.08px', width: '100%', height: '57.16px', background: '#131313' }}>
+          {project.tags.map(tag => (
+            <span key={tag} style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400, fontSize: '14.22px', lineHeight: '17px', color: '#6B6B6B' }}>
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ArrowRightIcon({ size = 32 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <path d="M6 16h20M18 8l8 8-8 8" stroke="#131313" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
 
 export default function WorkSection() {
-  const sectionRef = useRef(null)
+  const sectionRef       = useRef(null)
+  const desktopRef       = useRef(null)
   const cardsContainerRef = useRef(null)
-  const [activeIndex, setActiveIndex] = useState(1) // Center card starts as active
+  const mobileCarouselRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(1)
+  const [mobileIndex, setMobileIndex] = useState(0)
 
+  /* ── Desktop GSAP ── */
   useGSAP(() => {
     const mm = gsap.matchMedia()
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+
+    mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
       const cards = gsap.utils.toArray('.project-card', cardsContainerRef.current)
-      
-      // Entrance animation
+
       gsap.from(cards, {
-        y: 120,
-        opacity: 0,
-        stagger: 0.12,
-        duration: 0.9,
-        ease: 'power3.out',
+        x: -120, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out',
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: desktopRef.current,
           start: 'top 75%',
           toggleActions: 'play none none reverse',
         },
       })
 
-      // Swipe / Drag to Flip Logic
       let isAnimating = false
 
       function shiftCards(direction) {
         if (isAnimating) return
         isAnimating = true
-
         const container = cardsContainerRef.current
-        const cardEls = gsap.utils.toArray('.project-card', container)
+        const cardEls   = gsap.utils.toArray('.project-card', container)
         if (cardEls.length < 2) { isAnimating = false; return }
 
-        // Capture state before DOM mutation
         const state = Flip.getState(cardEls)
 
-        // Reorder DOM
-        if (direction === 'next') {
-          container.appendChild(cardEls[0]) // Move first to end
-        } else {
-          container.prepend(cardEls[cardEls.length - 1]) // Move last to start
-        }
+        if (direction === 'next') container.appendChild(cardEls[0])
+        else container.prepend(cardEls[cardEls.length - 1])
 
-        // Apply new layout styles to the newly ordered array
         const newCards = gsap.utils.toArray('.project-card', container)
-        const offsets = [
-          { left: '43px', zIndex: 1 },
+        const offsets  = [
+          { left: '43px',                 zIndex: 1 },
           { left: 'calc(50% - 279.46px)', zIndex: 2 },
-          { left: '676px', zIndex: 1 },
+          { left: '676px',                zIndex: 1 },
         ]
-
         newCards.forEach((card, i) => {
           const pos = offsets[i] || offsets[0]
-          card.style.left = pos.left
+          card.style.left   = pos.left
           card.style.zIndex = pos.zIndex
           card.style.border = i === 1 ? '5.02031px solid #181818' : '5.02031px solid #131313'
         })
 
-        // Animate from old state to new state
         Flip.from(state, {
-          duration: 0.6,
-          ease: 'power2.inOut',
-          absolute: true,
+          duration: 0.6, ease: 'power2.inOut', absolute: true,
           onComplete: () => {
             isAnimating = false
             const centerCard = newCards[1]
@@ -241,107 +178,167 @@ export default function WorkSection() {
         })
       }
 
-      // Detect swipe/drag using Observer, STRICTLY ignoring wheel events
       Observer.create({
         target: cardsContainerRef.current,
-        type: 'touch,pointer', // Swipe/drag only, no scroll/wheel
-        onLeft: () => shiftCards('next'),
+        type: 'touch,pointer',
+        onLeft:  () => shiftCards('next'),
         onRight: () => shiftCards('prev'),
-        tolerance: 40, // Requires 40px drag to trigger flip
-        preventDefault: false, // Allow normal vertical page scrolling
+        tolerance: 40,
+        preventDefault: false,
+      })
+    })
+
+    /* ── Mobile: swipe carousel ── */
+    mm.add('(max-width: 1023px) and (prefers-reduced-motion: no-preference)', () => {
+      if (!mobileCarouselRef.current) return
+      Observer.create({
+        target: mobileCarouselRef.current,
+        type: 'touch,pointer',
+        onLeft: () => setMobileIndex(i => Math.min(i + 1, PROJECTS.length - 1)),
+        onRight: () => setMobileIndex(i => Math.max(i - 1, 0)),
+        tolerance: 40,
+        preventDefault: false,
       })
     })
   }, { scope: sectionRef })
 
   return (
-    <section
-      ref={sectionRef}
-      id="works"
-      className="relative w-full"
-      style={{
-        background: '#FFFFFF',
-        height: '954px',
-        overflow: 'hidden',
-      }}
-    >
-      <div
-        ref={cardsContainerRef}
-        className="cards-container relative mx-auto"
-        style={{
-          width: '1280px',
-          maxWidth: '100%',
-          height: '423.5px',
-          marginTop: '164.25px',
-        }}
-      >
-        {PROJECTS.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
-        ))}
-      </div>
+    <section ref={sectionRef} id="works" className="relative w-full bg-white overflow-hidden">
 
+      {/* ── Desktop layout ── */}
       <div
-        className="pagination-dots flex items-center justify-center gap-[8px]"
-        style={{ marginTop: '146.2px' }}
+        ref={desktopRef}
+        className="works-desktop"
+        style={{ height: '954px', position: 'relative' }}
       >
-        {PROJECTS.map((project, i) => (
-          <div
-            key={project.id}
-            className="transition-colors duration-300"
-            style={{
-              width: 20,
-              height: 20,
-              background: i === activeIndex ? '#6B6B6B' : '#D9D9D9',
-              borderRadius: '50%',
-            }}
-          />
-        ))}
-      </div>
-
-      <div
-        className="flex items-center justify-center"
-        style={{ marginTop: '75px' }}
-      >
-        <a
-          href="#works"
-          className="flex items-center gap-[12px] group"
-          style={{
-            fontFamily: "'Haffer-TRIAL', 'Inter', system-ui, sans-serif",
-            fontWeight: 400,
-            fontSize: '28px',
-            lineHeight: '40px',
-            textDecorationLine: 'underline',
-            textTransform: 'capitalize',
-            color: '#131313',
-          }}
+        <div
+          ref={cardsContainerRef}
+          className="cards-container relative mx-auto"
+          style={{ width: '1280px', maxWidth: '100%', height: '423.5px', marginTop: '164.25px' }}
         >
-          See more work
-          <ArrowRightIcon />
-        </a>
+          {PROJECTS.map((project, i) => (
+            <DesktopProjectCard key={project.id} project={project} index={i} />
+          ))}
+        </div>
+
+        <div className="pagination-dots flex items-center justify-center gap-[8px]" style={{ marginTop: '146.2px' }}>
+          {PROJECTS.map((project, i) => (
+            <div key={project.id} className="transition-colors duration-300"
+              style={{ width: 20, height: 20, background: i === activeIndex ? '#6B6B6B' : '#D9D9D9', borderRadius: '50%' }}
+            />
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center" style={{ marginTop: '75px' }}>
+          <Link
+            to="/projects"
+            className="flex items-center gap-[12px] group"
+            style={{
+              fontFamily: "'Haffer-TRIAL', sans-serif",
+              fontWeight: 400, fontSize: 'clamp(18px, 2vw, 28px)',
+              lineHeight: '40px', textDecorationLine: 'underline',
+              textTransform: 'capitalize', color: '#131313',
+            }}
+          >
+            See All Works
+            <ArrowRightIcon />
+          </Link>
+        </div>
+      </div>
+
+      {/* ── Mobile layout ── */}
+      <div className="works-mobile">
+        {/* Swipeable card area */}
+        <div ref={mobileCarouselRef} className="mobile-carousel-wrapper">
+          <div
+            className="mobile-carousel-track"
+            style={{ transform: `translateX(calc(-${mobileIndex * 100}%))` }}
+          >
+            {PROJECTS.map(project => (
+              <div key={project.id} className="mobile-carousel-slide">
+                <MobileProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex items-center justify-center gap-[8px]" style={{ marginTop: '24px' }}>
+          {PROJECTS.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to project ${i + 1}`}
+              onClick={() => setMobileIndex(i)}
+              style={{
+                width: 12, height: 12, borderRadius: '50%', border: 'none', cursor: 'pointer',
+                background: i === mobileIndex ? '#6B6B6B' : '#D9D9D9',
+                padding: 0, transition: 'background 0.3s',
+              }}
+            />
+          ))}
+        </div>
+
+        {/* See more link */}
+        <div className="flex items-center justify-center" style={{ marginTop: '24px', paddingBottom: '48px' }}>
+          <Link
+            to="/projects"
+            className="flex items-center gap-[8px]"
+            style={{
+              fontFamily: "'Haffer-TRIAL', sans-serif",
+              fontWeight: 400, fontSize: '16px',
+              lineHeight: '140%', textDecoration: 'underline',
+              textTransform: 'capitalize', color: '#131313',
+            }}
+          >
+            See more work
+            <ArrowRightIcon size={18} />
+          </Link>
+        </div>
       </div>
 
       <style>{`
+        /* Desktop */
+        @media (min-width: 1024px) {
+          .works-mobile  { display: none !important; }
+          .works-desktop { display: block; }
+        }
+
+        /* Mobile / Tablet */
         @media (max-width: 1023px) {
-          #works {
-            height: auto !important;
-            padding-bottom: 100px !important;
+          .works-desktop { display: none !important; }
+          .works-mobile  { display: block; padding-top: 40px; }
+
+          .mobile-carousel-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 0 16px;
+            box-sizing: border-box;
           }
-          #works .cards-container {
-            width: 100% !important;
-            height: auto !important;
+
+          .mobile-carousel-track {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-            margin-top: 60px !important;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
           }
-          #works .project-card {
-            position: relative !important;
-            left: auto !important;
+
+          .mobile-carousel-slide {
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+          }
+
+          .mobile-project-card {
             width: 100% !important;
-            max-width: 558.93px;
           }
-          #works .pagination-dots {
-            margin-top: 40px !important;
+        }
+
+        /* Tablets (768px–1023px): card wider */
+        @media (min-width: 600px) and (max-width: 1023px) {
+          .mobile-carousel-wrapper {
+            padding: 0 clamp(16px, 5vw, 48px);
+          }
+          .mobile-project-card {
+            max-width: clamp(343px, 70vw, 540px) !important;
           }
         }
       `}</style>

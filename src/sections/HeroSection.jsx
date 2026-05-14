@@ -41,6 +41,10 @@ export default function HeroSection() {
   /* ── Setup: quickTo trackers + global mousemove ───────── */
   useEffect(() => {
     const el = previewRef.current
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isTouch = window.matchMedia('(hover: none)').matches
+
+    if (reduceMotion || isTouch) return // No preview for reduced-motion or touch users
 
     /* Set start state: hidden, centred on cursor via xPercent/yPercent */
     gsap.set(el, {
@@ -61,12 +65,7 @@ export default function HeroSection() {
       yTo.current(e.clientY)
     }
 
-    /* Only attach on non-touch devices */
-    const isTouch = window.matchMedia('(hover: none)').matches
-    if (!isTouch) {
-      window.addEventListener('mousemove', onMouseMove, { passive: true })
-    }
-
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
     return () => window.removeEventListener('mousemove', onMouseMove)
   }, [])
 
@@ -96,7 +95,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100dvh] -mt-[55px] sm:-mt-[80px] lg:-mt-[64px] flex flex-col justify-center"
+      className="relative w-full min-h-[100dvh] flex flex-col justify-center"
       /* overflow-x hidden so the preview card never makes a scrollbar */
       style={{ overflowX: 'clip' }}
       onMouseLeave={hidePreview}

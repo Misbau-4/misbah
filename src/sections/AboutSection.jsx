@@ -10,6 +10,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
 import { TextPlugin } from 'gsap/TextPlugin'
 
+gsap.registerPlugin(ScrollTrigger, SplitText, TextPlugin)
+
 /* ── Mail icon for CTA ──────────────────────────────────── */
 function MailIcon() {
   return (
@@ -25,7 +27,10 @@ function MailIcon() {
   )
 }
 
-/* ── Panel 000 ──────────────────────────────────────────── */
+/* ── Panel 000 ────────────────────────────────────────────
+   Desktop: shown inside horizontal scroll container
+   Mobile:  hidden (mobile layout renders its own block)
+*/
 function Panel000({ textRef, btnRef, btnTextRef, btnIconRef, flairRef, onBtnEnter, onBtnLeave, onBtnMove }) {
   return (
     <div className="about-panel relative flex-shrink-0 h-[100dvh] bg-[#FFFFFF] overflow-hidden flex items-center xl:items-start xl:justify-center">
@@ -33,46 +38,42 @@ function Panel000({ textRef, btnRef, btnTextRef, btnIconRef, flairRef, onBtnEnte
         <div className="frame-000-main">
           <div className="frame-000-text-container">
             <p ref={textRef} className="text-000-main">
-              I’m <em style={{ fontStyle: 'italic', color: '#00C896' }}>Misbah,</em> I am a Developer and Designer focused on bringing intuitive concepts to life.
+              I'm <em style={{ fontStyle: 'italic', color: '#00C896' }}>Misbah,</em> I am a Developer and Designer focused on bringing intuitive concepts to life.
             </p>
           </div>
-          
-          <button 
+          <button
             ref={btnRef}
-            type="button" 
+            type="button"
             className="btn-000-frame group relative overflow-hidden transition-colors duration-200"
             style={{ borderColor: '#000000', backgroundColor: '#FFFFFF' }}
-            onMouseEnter={onBtnEnter} 
+            onMouseEnter={onBtnEnter}
             onMouseLeave={onBtnLeave}
             onMouseMove={onBtnMove}
           >
-            {/* Magnetic Flair */}
-            <div 
-              ref={flairRef} 
-              className="absolute pointer-events-none rounded-full" 
-              style={{ width: 10, height: 10, background: '#131313', top: 0, left: 0, transform: 'translate(-50%, -50%) scale(0)', zIndex: 0 }} 
+            <div
+              ref={flairRef}
+              className="absolute pointer-events-none rounded-full"
+              style={{ width: 10, height: 10, background: '#131313', top: 0, left: 0, transform: 'translate(-50%, -50%) scale(0)', zIndex: 0 }}
             />
-            {/* Content Container */}
             <div className="relative z-10 flex items-center gap-[12px]">
-              <span ref={btnTextRef} className="btn-000-text inline-block transition-colors duration-200 group-hover:text-white">Let’s Talk</span>
+              <span ref={btnTextRef} className="btn-000-text inline-block transition-colors duration-200 group-hover:text-white">Let's Talk</span>
               <div ref={btnIconRef} className="btn-000-icon inline-block transition-colors duration-200 group-hover:text-white"><MailIcon /></div>
             </div>
           </button>
         </div>
-        
         <img src={arrowPinkVector} alt="" className="vector-176-000" aria-hidden="true" />
       </div>
     </div>
   )
 }
 
-/* ── Panel Merged (001 + 002 + 003) ─────────────────────── */
+/* ── Panel Merged (001 + 002 + 003) — desktop only ───────── */
 function PanelMerged({ textRef }) {
   return (
     <div className="about-panel relative flex-shrink-0 h-[100dvh] bg-[#FFFFFF] overflow-hidden flex items-center xl:items-start">
        <div className="panel-merged-desktop-wrapper">
           <div ref={textRef} className="frame-merged-row">
-             <div className="text-merged-I">I</div>
+             <div className="text-merged-I" style={{ fontWeight: 500 }}>I</div>
              
              <div className="text-merged-build">
                 <span className="inline-block mr-[2px]">b</span>
@@ -91,17 +92,17 @@ function PanelMerged({ textRef }) {
                 <span className="inline-block ml-[2px]">ild</span>
              </div>
              
-             <div className="text-merged-digital">digital products where</div>
+             <div className="text-merged-digital" style={{ fontWeight: 500 }}>digital products where</div>
              
              <div className="frame-merged-highlight">
                 <div className="text-merged-discoverability">discoverability</div>
              </div>
              
-             <div className="text-merged-effortless">is effortless and</div>
+             <div className="text-merged-effortless" style={{ fontWeight: 500 }}>is effortless and</div>
              
              <div className="text-merged-understanding">
                <span style={{ color: '#9295FE', fontFamily: 'Nohemi', marginRight: '16px' }}>understanding</span>
-               <span style={{ color: '#131313', fontFamily: 'Haffer XH-TRIAL' }}>is</span>
+               <span style={{ color: '#131313', fontFamily: 'Haffer XH-TRIAL', fontWeight: 500 }}>is</span>
              </div>
              
              <div className="frame-1321315526">
@@ -124,31 +125,72 @@ function PanelMerged({ textRef }) {
              </div>
           </div>
           
-          {/* Decorative images */}
           <img src={blueSeriousVector} alt="" className="vector-001-smiley" aria-hidden="true" />
-          
           <img src={smileyVector} alt="" className="image-001-71" aria-hidden="true" />
-          
           <img src={greenVector} alt="" className="group-13714" />
-          
           <img src={yellowSeriousVector} alt="" className="vector-003-ghost" aria-hidden="true" />
        </div>
     </div>
   )
 }
 
+/* ── Mobile Layout — shown only on < 1024px ─────────────── */
+function MobileAboutLayout({ introRef, descRef, mobileBtnRef, mobileBtnTextRef, mobileBtnIconRef, mobileFlairRef, onBtnEnter, onBtnLeave, onBtnMove }) {
+  return (
+    <div className="about-mobile-layout">
+      <div className="about-mobile-frame">
+        <p ref={introRef} className="about-mobile-intro">
+          I'm <em style={{ fontStyle: 'italic', color: '#00C896' }}>Misbah,</em> I am a &#123;Developer&#125; and Designer focused on bringing intuitive concepts to life.
+        </p>
+        <p ref={descRef} className="about-mobile-desc">
+          I build digital products where{' '}
+          <span style={{ color: '#00C896' }}>discoverability</span> is effortless and{' '}
+          <span style={{ color: '#00C896' }}>understanding</span> is instant.
+        </p>
+      </div>
+      <button
+        ref={mobileBtnRef}
+        type="button"
+        className="btn-000-frame group relative overflow-hidden"
+        style={{ borderColor: '#000000', backgroundColor: '#FFFFFF' }}
+        onMouseEnter={onBtnEnter}
+        onMouseLeave={onBtnLeave}
+        onMouseMove={onBtnMove}
+      >
+        <div
+          ref={mobileFlairRef}
+          className="absolute pointer-events-none rounded-full"
+          style={{ width: 10, height: 10, background: '#131313', top: 0, left: 0, transform: 'translate(-50%, -50%) scale(0)', zIndex: 0 }}
+        />
+        <div className="relative z-10 flex items-center gap-[12px]">
+          <span ref={mobileBtnTextRef} className="btn-000-text inline-block">Let's Talk</span>
+          <div ref={mobileBtnIconRef} className="btn-000-icon inline-block"><MailIcon /></div>
+        </div>
+      </button>
+    </div>
+  )
+}
+
 /* ── Main AboutSection ──────────────────────────────────── */
 export default function AboutSection() {
-  const wrapperRef = useRef(null)
-  const containerRef = useRef(null)
-  const text000Ref = useRef(null)
-  const textMergedRef = useRef(null)
+  const wrapperRef      = useRef(null)
+  const containerRef    = useRef(null)
+  const text000Ref      = useRef(null)
+  const textMergedRef   = useRef(null)
+  // Mobile text refs
+  const mobileIntroRef  = useRef(null)
+  const mobileDescRef   = useRef(null)
   
-  // Magnetic Button Refs
-  const btnRef = useRef(null)
-  const btnTextRef = useRef(null)
-  const btnIconRef = useRef(null)
-  const flairRef = useRef(null)
+  // Desktop button refs
+  const btnRef          = useRef(null)
+  const btnTextRef      = useRef(null)
+  const btnIconRef      = useRef(null)
+  const flairRef        = useRef(null)
+  // Mobile button refs
+  const mobileBtnRef      = useRef(null)
+  const mobileBtnTextRef  = useRef(null)
+  const mobileBtnIconRef  = useRef(null)
+  const mobileFlairRef    = useRef(null)
 
   useGSAP(() => {
     const mm = gsap.matchMedia()
@@ -174,64 +216,43 @@ export default function AboutSection() {
           },
         })
 
-        /* Decorative Vectors - Scroll direction toggle animations */
         let blueTween = gsap.to('.vector-001-smiley', {
-          duration: 1.5,
-          x: 300, // explicit pixel value for clarity
-          ease: 'power1.inOut',
-          paused: true
+          duration: 1.5, x: 300, ease: 'power1.inOut', paused: true
         }).reverse()
 
         ScrollTrigger.create({
           trigger: '.vector-001-smiley',
           containerAnimation: scrollTween,
-          start: 'left 90%', // Starts slightly before it enters fully
-          end: 'right 10%',
+          start: 'left 90%', end: 'right 10%',
           onUpdate: (self) => {
-            if (self.direction === 1) {
-              blueTween.play()
-            } else {
-              blueTween.reverse()
-            }
+            if (self.direction === 1) blueTween.play()
+            else blueTween.reverse()
           }
         })
 
         let smileyTween = gsap.to('.image-001-71', {
-          duration: 1.5,
-          x: 300,
-          y: 40, // Modest vertical displacement for the bounce
-          ease: 'bounce.out',
-          paused: true
+          duration: 1.5, x: 300, y: 40, ease: 'bounce.out', paused: true
         }).reverse()
 
         ScrollTrigger.create({
           trigger: '.image-001-71',
           containerAnimation: scrollTween,
-          start: 'left 90%',
-          end: 'right 10%',
+          start: 'left 90%', end: 'right 10%',
           onUpdate: (self) => {
-            if (self.direction === 1) {
-              smileyTween.play()
-            } else {
-              smileyTween.reverse()
-            }
+            if (self.direction === 1) smileyTween.play()
+            else smileyTween.reverse()
           }
         })
 
-        /* Green Asterisk Vector - Scrub rotation animation */
         gsap.to('.group-13714', {
-          rotation: 360,
-          ease: 'none',
+          rotation: 360, ease: 'none',
           scrollTrigger: {
             trigger: '.group-13714',
             containerAnimation: scrollTween,
-            start: 'left right',
-            end: 'right left',
-            scrub: 1, // Smooth scrub
+            start: 'left right', end: 'right left', scrub: 1,
           }
         })
 
-        /* SplitText reveals: Panel 000 (Vertical Trigger) */
         if (text000Ref.current) {
           const split0 = SplitText.create(text000Ref.current, { type: 'words', aria: 'auto' })
           gsap.from(split0.words, {
@@ -244,7 +265,6 @@ export default function AboutSection() {
           })
         }
 
-        /* SplitText reveals: Merged Panel (Horizontal containerAnimation) */
         if (textMergedRef.current) {
           const simpleNodes = Array.from(textMergedRef.current.querySelectorAll(
             '.text-merged-I, .text-merged-build, .text-merged-discoverability, .text-merged-understanding, .text-merged-instant'
@@ -281,158 +301,98 @@ export default function AboutSection() {
       }
     )
 
-    /* ── Tablet / Mobile: vertical stack + scroll reveals ── */
+    /* ── Mobile / Tablet: vertical + scroll reveals ── */
     mm.add(
-      '(max-width: 1023px), (prefers-reduced-motion: reduce)',
+      '(max-width: 1023px)',
       () => {
         if (containerRef.current) {
-          // Un-flex the horizontal wrapper for normal scrolling
-          gsap.set(containerRef.current, { clearProps: "all" })
+          gsap.set(containerRef.current, { clearProps: 'all' })
           containerRef.current.style.display = 'block'
-          containerRef.current.style.width = '100%'
+          containerRef.current.style.width   = '100%'
         }
 
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         if (!reducedMotion) {
-          /* Panel 000 */
-          if (text000Ref.current) {
-            const split0 = SplitText.create(text000Ref.current, { type: 'words', aria: 'auto' })
-            gsap.from(split0.words, {
+          // Animate mobile intro text
+          if (mobileIntroRef.current) {
+            const split = SplitText.create(mobileIntroRef.current, { type: 'words', aria: 'auto' })
+            gsap.from(split.words, {
               opacity: 0, y: 20, duration: 0.6, stagger: 0.03, ease: 'power3.out',
               scrollTrigger: {
-                trigger: text000Ref.current,
-                start: 'top 80%',
+                trigger: mobileIntroRef.current,
+                start: 'top 85%',
                 toggleActions: 'play none none reverse',
               }
             })
           }
-          
-          /* Merged Panel text blocks */
-          if (textMergedRef.current) {
-             const textNodes = Array.from(textMergedRef.current.querySelectorAll(
-                '.text-merged-I, .text-merged-build, .text-merged-digital, .text-merged-discoverability, .text-merged-effortless, .text-merged-understanding, .text-merged-instant'
-             ))
-             
-             textNodes.forEach(node => {
-               const split = SplitText.create(node, { type: 'words', aria: 'auto' })
-               gsap.from(split.words, {
-                 opacity: 0, y: 20, duration: 0.6, stagger: 0.03, ease: 'power3.out',
-                 scrollTrigger: {
-                   trigger: node,
-                   start: 'top 85%',
-                   toggleActions: 'play none none reverse',
-                 }
-               })
-             })
+          // Animate mobile desc text
+          if (mobileDescRef.current) {
+            const split = SplitText.create(mobileDescRef.current, { type: 'words', aria: 'auto' })
+            gsap.from(split.words, {
+              opacity: 0, y: 20, duration: 0.6, stagger: 0.03, ease: 'power3.out',
+              scrollTrigger: {
+                trigger: mobileDescRef.current,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+              }
+            })
           }
         }
       }
     )
   }, { scope: wrapperRef })
 
-  /* ── TextPlugin hover (contextSafe for event-driven) ──── */
+  /* ── Button interactions ── */
   const { contextSafe } = useGSAP({ scope: wrapperRef })
 
   const onBtnEnter = contextSafe((e) => {
-    // text change & color change
-    gsap.to(btnTextRef.current, {
-      duration: 0.35,
-      text: { value: 'Say Hello' },
-      color: '#FFFFFF',
-      ease: 'none',
-    })
-    gsap.to(btnIconRef.current, {
-      duration: 0.35,
-      color: '#FFFFFF',
-      ease: 'none',
-    })
+    const activeBtn     = btnRef.current     || mobileBtnRef.current
+    const activeText    = btnTextRef.current  || mobileBtnTextRef.current
+    const activeIcon    = btnIconRef.current  || mobileBtnIconRef.current
+    const activeFlair   = flairRef.current    || mobileFlairRef.current
 
-    // Flair entry
-    if (btnRef.current && flairRef.current) {
-      const rect = btnRef.current.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      
-      gsap.set(flairRef.current, { x, y })
-      gsap.to(flairRef.current, {
-        scale: 40,
-        duration: 0.5,
-        ease: 'power2.out'
-      })
+    gsap.to([activeText, activeIcon], { duration: 0.35, color: '#FFFFFF', ease: 'none' })
+    gsap.to(activeText, { duration: 0.35, text: { value: 'Say Hello' }, ease: 'none' })
+
+    if (activeBtn && activeFlair) {
+      const rect = activeBtn.getBoundingClientRect()
+      gsap.set(activeFlair, { x: e.clientX - rect.left, y: e.clientY - rect.top })
+      gsap.to(activeFlair, { scale: 40, duration: 0.5, ease: 'power2.out' })
     }
   })
 
   const onBtnMove = contextSafe((e) => {
-    if (!btnRef.current) return
-    const { clientX, clientY } = e
-    const { left, top, width, height } = btnRef.current.getBoundingClientRect()
-    
-    // Calculate distance from center of button
-    const x = clientX - (left + width / 2)
-    const y = clientY - (top + height / 2)
-
-    // Magnetic pull on the button itself
-    gsap.to(btnRef.current, { 
-      x: x * 0.4, 
-      y: y * 0.4, 
-      duration: 0.6, 
-      ease: 'power2.out' 
-    })
-    
-    // Parallax effect on text and icon
-    gsap.to(btnTextRef.current, { 
-      x: x * 0.2, 
-      y: y * 0.2, 
-      duration: 0.6, 
-      ease: 'power2.out' 
-    })
-    gsap.to(btnIconRef.current, { 
-      x: x * 0.2, 
-      y: y * 0.2, 
-      duration: 0.6, 
-      ease: 'power2.out' 
-    })
+    const activeBtn   = btnRef.current   || mobileBtnRef.current
+    const activeText  = btnTextRef.current || mobileBtnTextRef.current
+    const activeIcon  = btnIconRef.current || mobileBtnIconRef.current
+    if (!activeBtn) return
+    const { left, top, width, height } = activeBtn.getBoundingClientRect()
+    const x = e.clientX - (left + width / 2)
+    const y = e.clientY - (top + height / 2)
+    gsap.to(activeBtn,  { x: x * 0.4, y: y * 0.4, duration: 0.6, ease: 'power2.out' })
+    gsap.to(activeText, { x: x * 0.2, y: y * 0.2, duration: 0.6, ease: 'power2.out' })
+    gsap.to(activeIcon, { x: x * 0.2, y: y * 0.2, duration: 0.6, ease: 'power2.out' })
   })
 
   const onBtnLeave = contextSafe((e) => {
-    gsap.to(btnTextRef.current, {
-      duration: 0.35,
-      text: { value: "Let's Talk" },
-      color: '#181818',
-      ease: 'none',
-    })
-    gsap.to(btnIconRef.current, {
-      duration: 0.35,
-      color: '#181818',
-      ease: 'none',
-    })
-    
-    // Reset magnetic positions
-    gsap.to([btnRef.current, btnTextRef.current, btnIconRef.current], {
-      x: 0,
-      y: 0,
-      duration: 0.8,
-      ease: 'elastic.out(1, 0.3)'
-    })
+    const activeBtn   = btnRef.current   || mobileBtnRef.current
+    const activeText  = btnTextRef.current || mobileBtnTextRef.current
+    const activeIcon  = btnIconRef.current || mobileBtnIconRef.current
+    const activeFlair = flairRef.current   || mobileFlairRef.current
 
-    // Flair exit - shrink to mouse leave point
-    if (btnRef.current && flairRef.current) {
-      const rect = btnRef.current.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      gsap.to(flairRef.current, {
-        x, 
-        y, 
-        scale: 0,
-        duration: 0.5,
-        ease: 'power2.inOut'
-      })
+    gsap.to(activeText, { duration: 0.35, text: { value: "Let's Talk" }, color: '#181818', ease: 'none' })
+    gsap.to(activeIcon, { duration: 0.35, color: '#181818', ease: 'none' })
+    gsap.to([activeBtn, activeText, activeIcon], { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.3)' })
+
+    if (activeBtn && activeFlair) {
+      const rect = activeBtn.getBoundingClientRect()
+      gsap.to(activeFlair, { x: e.clientX - rect.left, y: e.clientY - rect.top, scale: 0, duration: 0.5, ease: 'power2.inOut' })
     }
   })
 
   return (
     <section ref={wrapperRef} id="about" className="relative overflow-hidden">
-      {/* Container needs max-content width or flex to wrap panels horizontally */}
+      {/* Desktop horizontal wrapper — hidden on mobile */}
       <div ref={containerRef} className="about-horizontal-wrapper flex flex-nowrap w-max">
         <Panel000
           textRef={text000Ref}
@@ -444,13 +404,26 @@ export default function AboutSection() {
           onBtnLeave={onBtnLeave}
           onBtnMove={onBtnMove}
         />
+        {/* PanelMerged — desktop only */}
         <PanelMerged textRef={textMergedRef} />
       </div>
 
-      {/* ── Exact Figma CSS mapped to classes ──────────────── */}
+      {/* Mobile layout — only shown on < 1024px */}
+      <MobileAboutLayout
+        introRef={mobileIntroRef}
+        descRef={mobileDescRef}
+        mobileBtnRef={mobileBtnRef}
+        mobileBtnTextRef={mobileBtnTextRef}
+        mobileBtnIconRef={mobileBtnIconRef}
+        mobileFlairRef={mobileFlairRef}
+        onBtnEnter={onBtnEnter}
+        onBtnLeave={onBtnLeave}
+        onBtnMove={onBtnMove}
+      />
+
       <style>{`
         /* ============================================= */
-        /* PANEL 000 — unchanged                           */
+        /* PANEL 000 — Desktop                          */
         /* ============================================= */
         .panel-000-desktop-wrapper {
           display: flex; flex-direction: column; align-items: flex-start;
@@ -459,8 +432,7 @@ export default function AboutSection() {
         }
         .frame-000-main {
           display: flex; flex-direction: column; align-items: flex-start;
-          padding: 0px; gap: 40px; width: 771px; height: 278px;
-          z-index: 2;
+          padding: 0px; gap: 40px; width: 771px; height: 278px; z-index: 2;
         }
         .frame-000-text-container {
           display: flex; flex-direction: column; align-items: flex-start;
@@ -469,22 +441,23 @@ export default function AboutSection() {
         .text-000-main {
           width: 771px; height: 174px;
           font-family: 'Haffer-TRIAL', sans-serif;
-          font-weight: 400; font-size: 48px; line-height: 120%;
-          color: #181818;
+          font-weight: 400;
+          font-size: clamp(32px, 3.7vw, 48px);
+          line-height: 120%; color: #181818;
         }
         .btn-000-frame {
           box-sizing: border-box; display: flex; flex-direction: row;
           justify-content: center; align-items: center;
-          padding: 20px 28px; gap: 12px; width: 161px; height: 64px;
+          padding: 20px 28px; gap: 12px;
           background: #FFFFFF; border: 1px solid #000000; border-radius: 40px;
-          cursor: pointer;
+          cursor: pointer; width: auto; height: auto;
         }
         .btn-000-text {
-          width: 69px; height: 20px;
           font-family: 'Google Sans Flex', sans-serif;
           font-weight: 500; font-size: 16px; line-height: 20px;
           text-align: center; color: #181818; white-space: nowrap;
         }
+        .btn-000-icon svg { width: 24px; height: 24px; }
         .vector-176-000 {
           position: absolute; width: 153px; height: 172px;
           left: 831.35px; top: 310.13px;
@@ -492,7 +465,7 @@ export default function AboutSection() {
         }
 
         /* ============================================= */
-        /* MERGED PANEL (001+002+003)                    */
+        /* MERGED PANEL (001+002+003) — Desktop          */
         /* ============================================= */
         .panel-merged-desktop-wrapper {
           display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
@@ -502,65 +475,32 @@ export default function AboutSection() {
         .frame-merged-row {
           display: flex; flex-direction: row; align-items: center;
           padding: 0px; gap: 16.77px;
-          width: 3146.18px; height: 94px;
-          z-index: 0;
+          width: 3146.18px; height: 94px; z-index: 0;
         }
-        
-        .text-merged-I {
-          width: auto; height: 94px;
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-style: normal; font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em; color: #131313;
-          white-space: nowrap;
+        .text-merged-I, .text-merged-build, .text-merged-digital,
+        .text-merged-effortless, .text-merged-understanding, .text-merged-instant {
+          font-family: 'Haffer XH-TRIAL', sans-serif; font-weight: 500;
+          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
+          color: #131313; white-space: nowrap; height: 94px;
         }
-        .text-merged-build {
-          width: auto; height: 61.95px;
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-style: normal; font-weight: 500;
-          font-size: 78.2517px; line-height: 61.95px; letter-spacing: -0.02em; color: #131313;
-          white-space: nowrap;
-        }
-        .text-merged-digital {
-          width: auto; height: 94px;
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-style: normal; font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em; color: #131313;
-          white-space: nowrap;
-        }
-        
-        /* Inline Frame mapping to highlight */
+        /* .text-merged-build line-height override removed for baseline alignment */
         .frame-merged-highlight {
           display: flex; flex-direction: row; justify-content: center; align-items: center;
-          padding: 0px 16.7682px; gap: 13.97px; width: auto; height: 94px; background: #F6FF52;
+          padding: 0px 16.7682px; gap: 13.97px; height: 94px; background: #F6FF52;
         }
         .text-merged-discoverability {
-          width: auto; height: 94px;
-          font-family: 'Nohemi', sans-serif; font-style: normal; font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.01em; color: #010005;
-          white-space: nowrap;
+          font-family: 'Nohemi', sans-serif; font-weight: 500;
+          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.01em;
+          color: #010005; white-space: nowrap; height: 94px;
         }
-        
-        .text-merged-effortless {
-          width: auto; height: 94px;
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-style: normal; font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em; color: #131313;
-          white-space: nowrap;
-        }
-        
-        .text-merged-understanding {
-          width: auto; height: 94px;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
-          white-space: nowrap;
-        }
-        
         .frame-1321315526 {
-          width: auto; height: 94px; position: relative; display: flex; align-items: center;
+          height: 94px; position: relative; display: flex; align-items: center;
         }
         .text-merged-instant {
-          width: auto; height: 61.04px; position: static;
-          font-family: 'Haffer XH-TRIAL', sans-serif; font-style: normal; font-weight: 500;
-          font-size: 78.2517px; line-height: 61.04px; letter-spacing: -0.02em; color: #01CB70;
-          white-space: nowrap;
+          font-family: 'Haffer XH-TRIAL', sans-serif; font-weight: 500;
+          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
+          color: #01CB70; white-space: nowrap;
         }
-
-        /* Merged Decorative Elements */
         .vector-001-smiley {
           position: absolute; width: 92px; height: 84.87px; left: 319px; top: 422.46px; z-index: 1;
         }
@@ -571,46 +511,95 @@ export default function AboutSection() {
           position: absolute; width: 145px; height: 150px; left: 1737px; top: 413px; z-index: 3;
         }
         .vector-003-ghost {
-          position: absolute; width: 84.38px; height: 92.69px; left: 2413px; top: 159px; transform: matrix(-1, 0, 0, 1, 0, 0); z-index: 4;
+          position: absolute; width: 84.38px; height: 92.69px; left: 2413px; top: 159px;
+          transform: matrix(-1, 0, 0, 1, 0, 0); z-index: 4;
         }
 
         /* ============================================= */
-        /* RESPONSIVE FALLBACKS                          */
+        /* MOBILE LAYOUT (< 1024px)                     */
         /* ============================================= */
+
+        /* Hide desktop horizontal scroll on mobile */
         @media (max-width: 1023px) {
-          .panel-000-desktop-wrapper,
-          .panel-merged-desktop-wrapper {
-             height: auto; width: 100%; padding: 48px 20px; align-items: flex-start; overflow: hidden;
+          .about-horizontal-wrapper {
+            display: none !important;
           }
-          .frame-merged-row {
-             width: 100% !important; height: auto !important; flex-wrap: wrap; gap: 12px;
+
+          /* Mobile layout: Figma spec — padding 146px 16px 100px, gap 48px */
+          .about-mobile-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 120px 16px 100px;
+            gap: 48px;
+            width: 100%;
+            box-sizing: border-box;
           }
-          .text-000-main { font-size: 32px; width: 100%; height: auto; }
-          .frame-000-main, .frame-000-text-container { width: 100%; height: auto; }
-          
-          .text-merged-I, .text-merged-digital, .text-merged-build,
-          .text-merged-discoverability, .text-merged-effortless,
-          .text-merged-understanding, .text-merged-instant {
-             font-size: 36px !important; line-height: 130%; width: auto !important; height: auto !important; white-space: normal !important;
+
+          .about-mobile-frame {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
+            gap: 48px;
+            width: 100%;
           }
-          
-          .text-merged-digital, .text-merged-effortless, .text-merged-understanding {
-             width: 100% !important;
+
+          /* Intro text: Haffer-TRIAL, 28px → clamp for all sizes */
+          .about-mobile-intro {
+            font-family: 'Haffer-TRIAL', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: clamp(20px, 5.5vw, 28px);
+            line-height: 120%;
+            color: #181818;
+            margin: 0;
+            width: 100%;
           }
-          
-          .frame-merged-highlight {
-             width: max-content !important; height: auto !important; padding: 4px 12px;
+
+          /* Desc text: Haffer XH-TRIAL, 28px → clamp */
+          .about-mobile-desc {
+            font-family: 'Haffer XH-TRIAL', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: clamp(20px, 5.5vw, 28px);
+            line-height: 120%;
+            letter-spacing: -0.02em;
+            color: #131313;
+            margin: 0;
+            width: 100%;
           }
-          .frame-1321315526 {
-             width: auto !important; height: auto !important; position: static;
+
+          /* Mobile CTA button — Figma: padding 14px 16px, gap 12px */
+          .btn-000-frame {
+            padding: 14px 16px !important;
           }
-          .text-merged-instant {
-             position: static;
+          .btn-000-text {
+            font-size: 16px !important;
+            line-height: 20px !important;
+            width: auto !important;
+            height: auto !important;
           }
-          
+          .btn-000-icon svg { width: 18px !important; height: 18px !important; }
+
+          /* Decorative vectors: always hidden on mobile */
           .vector-176-000, .vector-001-smiley, .image-001-71,
-          .group-13714, .vector-003-ghost {
-             display: none;
+          .group-13714, .vector-003-ghost { display: none !important; }
+        }
+
+        /* Hide mobile layout on desktop */
+        @media (min-width: 1024px) {
+          .about-mobile-layout { display: none !important; }
+        }
+
+        /* Extra small devices (≤ 375px) */
+        @media (max-width: 375px) {
+          .about-mobile-intro,
+          .about-mobile-desc {
+            font-size: clamp(18px, 5vw, 22px);
+          }
+          .about-mobile-layout {
+            padding-top: 120px;
           }
         }
       `}</style>

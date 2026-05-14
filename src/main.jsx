@@ -5,10 +5,12 @@
  * – Imports GSAP plugin registration (side-effect)
  * – Wraps the app in Lenis smooth scroll
  * – Syncs Lenis ↔ GSAP ticker for ScrollTrigger compatibility
+ * – Wraps in React Router BrowserRouter for multi-page routing
  */
 
 import { StrictMode, useEffect, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ReactLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -17,6 +19,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './lib/gsapSetup'
 import './index.css'
 import App from './App.jsx'
+import Projects from './pages/Projects.jsx'
 
 /* ── Lenis ↔ GSAP sync wrapper ──────────────────────────── */
 function SmoothScrollProvider({ children }) {
@@ -51,7 +54,15 @@ function SmoothScrollProvider({ children }) {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <SmoothScrollProvider>
-      <App />
+      <BrowserRouter>
+        <Routes>
+          {/* Home */}
+          <Route path="/" element={<App />} />
+
+          {/* All Projects */}
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </BrowserRouter>
     </SmoothScrollProvider>
   </StrictMode>,
 )
