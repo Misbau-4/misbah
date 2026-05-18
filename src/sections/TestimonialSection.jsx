@@ -56,7 +56,7 @@ export default function TestimonialSection() {
 
       const mm = gsap.matchMedia()
 
-      mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)', () => {
         gsap.set(cards,    { autoAlpha: 0, y: 40 })
         gsap.set(cards[0], { autoAlpha: 1, y: 0  })
 
@@ -80,7 +80,7 @@ export default function TestimonialSection() {
       })
 
       /* Mobile: GSAP scroll-pinned crossfade ── */
-      mm.add('(max-width: 1023px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(max-width: 102.3rem) and (prefers-reduced-motion: no-preference)', () => {
         if (!mCards.length) return
         
         gsap.set(mCards,    { autoAlpha: 0, y: 40 })
@@ -202,30 +202,30 @@ export default function TestimonialSection() {
         }
 
         /* ============================================= */
-        /* DESKTOP (≥ 1024px)                           */
+        /* DESKTOP (≥ 102.4rem)                           */
         /* ============================================= */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .testimonials-mobile { display: none !important; }
 
           .testimonials-desktop {
             position: relative;
             width: 100%;
-            height: 744px;
+            height: 74.4rem;
             overflow: hidden;
           }
 
           .t-heading-wrap {
             position: absolute;
-            width: 258px; height: 96px;
-            left: calc(50% - 129px);
-            bottom: 638.05px;
+            width: 25.8rem; height: 9.6rem;
+            left: calc(50% - 12.9rem);
+            bottom: 63.80499999999999rem;
             text-align: center;
           }
           .t-heading {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(28px, 3vw, 40px);
-            line-height: 120%;
+            font-size: clamp(2.8rem, 3vw, 4rem);
+            line-height: 1.2;
             letter-spacing: -0.01em;
             color: #131313; margin: 0;
           }
@@ -233,98 +233,98 @@ export default function TestimonialSection() {
           /* Side avatars */
           .t-avatar { position: absolute; overflow: hidden; border-radius: 0; }
           .t-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-          .t-avatar-1 { width: 72px; height: 72px; left: 58px; bottom: 494px; }
-          .t-avatar-2 { width: 72px; height: 72px; left: 59px; bottom: 215px; }
-          .t-avatar-3 { width: 84px; height: 89px; left: 1141px; bottom: 422px; }
-          .t-avatar-4 { width: 72px; height: 72px; left: 1077px; bottom: 371px; }
+          .t-avatar-1 { width: 7.2rem; height: 7.2rem; left: 5.8rem; bottom: 49.4rem; }
+          .t-avatar-2 { width: 7.2rem; height: 7.2rem; left: 5.9rem; bottom: 21.5rem; }
+          .t-avatar-3 { width: 8.4rem; height: 8.9rem; left: 114.1rem; bottom: 42.2rem; }
+          .t-avatar-4 { width: 7.2rem; height: 7.2rem; left: 107.7rem; bottom: 37.1rem; }
 
           /* Shapes */
           .t-shape { position: absolute; }
-          .t-star-5 { left: 169px; top: 313px; width: 49.71px; height: 49.72px; }
-          .t-star-4 { left: 1052px; top: 555px; width: 60.56px; height: 53px; }
-          .t-ellipse-52 { left: 108px; top: 517px; width: 24px; height: 24px; }
-          .t-ellipse-53 { left: 1082px; top: 284px; width: 24px; height: 24px; }
+          .t-star-5 { left: 16.9rem; top: 31.3rem; width: 4.971rem; height: 4.9719999999999995rem; }
+          .t-star-4 { left: 105.2rem; top: 55.5rem; width: 6.056rem; height: 5.3rem; }
+          .t-ellipse-52 { left: 10.8rem; top: 51.7rem; width: 2.4rem; height: 2.4rem; }
+          .t-ellipse-53 { left: 108.2rem; top: 28.4rem; width: 2.4rem; height: 2.4rem; }
 
           /* Card stage */
           .t-card-stage {
             position: absolute;
-            width: 608px;
-            left: 344px;
-            top: 160px;
-            height: 460px;
+            width: 60.8rem;
+            left: 34.4rem;
+            top: 16rem;
+            height: 46rem;
             overflow: hidden;
             mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
           }
           .t-card {
             position: absolute;
-            top: 64px; left: 0;
+            top: 6.4rem; left: 0;
             display: flex; flex-direction: column;
             align-items: flex-start;
-            padding: 0; gap: 32px;
-            width: 608px; height: 299px;
+            padding: 0; gap: 3.2rem;
+            width: 60.8rem; height: 29.9rem;
           }
           .t-card-quote {
-            width: 608px; height: 203px;
+            width: 60.8rem; height: 20.3rem;
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 120%;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 1.2;
             color: #161718; margin: 0; flex-shrink: 0;
           }
           .t-card-author {
             display: flex; flex-direction: row; align-items: center;
-            padding: 0; gap: 18px; width: 296px; height: 64px; flex-shrink: 0;
+            padding: 0; gap: 1.8rem; width: 29.6rem; height: 6.4rem; flex-shrink: 0;
           }
           .t-card-author-avatar {
-            box-sizing: border-box; width: 64px; height: 64px;
+            box-sizing: border-box; width: 6.4rem; height: 6.4rem;
             border: 1px solid #FFFFFF; border-radius: 999px;
             object-fit: cover; flex-shrink: 0;
           }
           .t-card-author-info {
             display: flex; flex-direction: column; align-items: flex-start;
-            padding: 0; gap: 4px; width: 214px; height: 49px;
+            padding: 0; gap: 0.4rem; width: 21.4rem; height: 4.9rem;
           }
           .t-card-name {
-            width: 214px; height: 25px;
+            width: 21.4rem; height: 2.5rem;
             font-family: var(--font-custom);
             font-weight: 500;
-            font-size: 20px;
-            line-height: 25px;
+            font-size: 2rem;
+            line-height: 2.5rem;
             letter-spacing: 0.02em;
             text-transform: capitalize;
             color: #161718;
           }
           .t-card-role {
-            width: 214px; height: 20px;
+            width: 21.4rem; height: 2rem;
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: 17px;
-            line-height: 20px;
+            font-size: 1.7rem;
+            line-height: 2rem;
             color: #6B6B6B;
           }
         }
 
         /* ============================================= */
-        /* MOBILE / TABLET (< 1024px)                   */
+        /* MOBILE / TABLET (< 102.4rem)                   */
         /* ============================================= */
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375em) {
           .testimonials-desktop { display: none !important; }
 
           .testimonials-mobile {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 48px 0 64px;
-            gap: 32px;
+            padding: 4.8rem 0 6.4rem;
+            gap: 3.2rem;
           }
 
-          /* Mobile heading: Figma 24px */
+          /* Mobile heading: Figma 2.4rem */
           .t-mobile-heading {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(20px, 5.5vw, 28px);
-            line-height: 120%;
+            font-size: clamp(2rem, 5.5vw, 2.8rem);
+            line-height: 1.2;
             text-align: center;
             letter-spacing: -0.01em;
             color: #131313;
@@ -336,7 +336,7 @@ export default function TestimonialSection() {
           .t-mobile-card-stage {
             position: relative;
             width: 100%;
-            height: 380px;
+            height: 38rem;
             display: flex;
             justify-content: center;
             overflow: hidden;
@@ -345,7 +345,7 @@ export default function TestimonialSection() {
           }
           .t-mobile-card-wrapper {
             position: absolute;
-            top: 24px;
+            top: 2.4rem;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -353,36 +353,36 @@ export default function TestimonialSection() {
           .t-mobile-card {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 3.2rem;
             width: 100%;
-            max-width: clamp(280px, 85vw, 400px);
+            max-width: clamp(28rem, 85vw, 40rem);
           }
           .t-mobile-quote {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(14px, 4vw, 16px);
-            line-height: 120%;
+            font-size: clamp(1.4rem, 4vw, 1.6rem);
+            line-height: 1.2;
             color: #161718;
             margin: 0;
           }
           .t-mobile-author {
             display: flex; flex-direction: row; align-items: center;
-            gap: 12px;
+            gap: 1.2rem;
           }
           .t-card-author-avatar {
-            box-sizing: border-box; width: 48px; height: 48px;
+            box-sizing: border-box; width: 4.8rem; height: 4.8rem;
             border: 1px solid #FFFFFF; border-radius: 999px;
             object-fit: cover; flex-shrink: 0;
           }
           .t-card-author-info {
             display: flex; flex-direction: column; align-items: flex-start;
-            gap: 4px;
+            gap: 0.4rem;
           }
           .t-mobile-name {
             font-family: var(--font-custom);
             font-weight: 500;
-            font-size: clamp(14px, 4vw, 16px);
-            line-height: 156%;
+            font-size: clamp(1.4rem, 4vw, 1.6rem);
+            line-height: 1.56;
             letter-spacing: 0.02em;
             text-transform: capitalize;
             color: #161718;
@@ -391,8 +391,8 @@ export default function TestimonialSection() {
           .t-mobile-role {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: 12px;
-            line-height: 14px;
+            font-size: 1.2rem;
+            line-height: 1.4rem;
             color: #6B6B6B;
             display: block;
           }
@@ -401,12 +401,12 @@ export default function TestimonialSection() {
         }
 
         /* Tablets: slightly wider cards */
-        @media (min-width: 600px) and (max-width: 1023px) {
+        @media (min-width: 37.5em) and (max-width: 63.9375em) {
           .t-mobile-card {
-            max-width: clamp(400px, 70vw, 560px);
+            max-width: clamp(40rem, 70vw, 56rem);
           }
           .t-mobile-carousel-wrap {
-            padding: 0 clamp(16px, 5vw, 48px);
+            padding: 0 clamp(1.6rem, 5vw, 4.8rem);
           }
         }
       `}</style>

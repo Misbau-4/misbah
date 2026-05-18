@@ -17,7 +17,7 @@ export default function BentoGallerySection() {
       const mm = gsap.matchMedia()
 
       /* ── Desktop: Flip scrub ── */
-      mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)', () => {
         if (!bgRef.current || !desktopImgWrapRef.current) return
 
         const state = Flip.getState(desktopImgWrapRef.current)
@@ -39,7 +39,7 @@ export default function BentoGallerySection() {
       })
 
       /* ── Mobile: simple fade-in reveal ── */
-      mm.add('(max-width: 1023px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(max-width: 102.3rem) and (prefers-reduced-motion: no-preference)', () => {
         if (!mobileImgWrapRef.current) return
         gsap.from(mobileImgWrapRef.current, {
           opacity: 0, y: 24, duration: 0.7, ease: 'power3.out',
@@ -80,16 +80,16 @@ export default function BentoGallerySection() {
         }
 
         /* ============================================= */
-        /* DESKTOP (≥ 1024px)                           */
+        /* DESKTOP (≥ 102.4rem)                           */
         /* ============================================= */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .bento-mobile  { display: none !important; }
 
           .bento-desktop {
             position: relative;
             width: 100%;
-            height: 670px;
-            margin-bottom: 100px;
+            height: 67rem;
+            margin-bottom: 10rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -97,18 +97,18 @@ export default function BentoGallerySection() {
 
           .bento-bg {
             position: relative;
-            width: min(1200px, 100%);
-            height: 670px;
+            width: min(120rem, 100%);
+            height: 67rem;
             background: #ECEAED;
             overflow: hidden;
           }
 
           .bento-img-wrap {
             position: absolute;
-            width: 626.25px;
-            height: 542px;
-            left: calc(50% - 313.125px);
-            bottom: 64px;
+            width: 62.625rem;
+            height: 54.2rem;
+            left: calc(50% - 31.3125rem);
+            bottom: 6.4rem;
             background: #005EE5;
             border-radius: 2px;
             overflow: hidden;
@@ -124,12 +124,12 @@ export default function BentoGallerySection() {
         }
 
         /* ============================================= */
-        /* MOBILE / TABLET (< 1024px)                   */
+        /* MOBILE / TABLET (< 102.4rem)                   */
         /* ============================================= */
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375em) {
           .bento-desktop { display: none !important; }
 
-          /* Figma: 343×250, inside 48px 16px padding container */
+          /* Figma: 343×250, inside 4.8rem 1.6rem padding container */
           .bento-mobile {
             display: flex;
             justify-content: center;
@@ -140,8 +140,8 @@ export default function BentoGallerySection() {
 
           .bento-mobile-img-wrap {
             width: 100%;
-            max-width: 343px;
-            height: 250px;
+            max-width: 34.3rem;
+            height: 25rem;
             background: #ECEAED;
             overflow: hidden;
             border-radius: 2px;
@@ -154,10 +154,10 @@ export default function BentoGallerySection() {
         }
 
         /* Tablets: wider image */
-        @media (min-width: 600px) and (max-width: 1023px) {
+        @media (min-width: 37.5em) and (max-width: 63.9375em) {
           .bento-mobile-img-wrap {
-            max-width: clamp(343px, 70vw, 640px);
-            height: clamp(220px, 40vw, 320px);
+            max-width: clamp(34.3rem, 70vw, 64rem);
+            height: clamp(22rem, 40vw, 32rem);
           }
         }
       `}</style>

@@ -88,7 +88,7 @@ export default function DesignProcessSection() {
 
       {/* ── Mobile layout — Figma spec ── */}
       <div className="dp-mobile">
-        {/* Header block: gap 20px, heading 22px, desc 16px */}
+        {/* Header block: gap 2rem, heading 2.2rem, desc 1.6rem */}
         <div ref={headerRef} className="dp-mobile-header">
           <h2 className="dp-mobile-heading">How I actually think when I design</h2>
           <p className="dp-mobile-desc">
@@ -97,7 +97,7 @@ export default function DesignProcessSection() {
           </p>
         </div>
 
-        {/* Steps — bordered rows, 56px tall, 14px text */}
+        {/* Steps — bordered rows, 5.6rem tall, 1.4rem text */}
         <div className="dp-mobile-steps">
           {STEPS.map((step, i) => (
             <div key={step.num} ref={el => (rowRefs.current[i] = el)} className="dp-mobile-step">
@@ -115,73 +115,73 @@ export default function DesignProcessSection() {
         }
 
         /* ============================================= */
-        /* DESKTOP (≥ 1024px)                           */
+        /* DESKTOP (≥ 102.4rem)                           */
         /* ============================================= */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .dp-mobile  { display: none !important; }
 
           .dp-desktop {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: clamp(48px, 6vw, 84px) clamp(24px, 3vw, 40px) clamp(60px, 9vw, 120px);
-            gap: 64px;
+            padding: clamp(4.8rem, 6vw, 8.4rem) clamp(2.4rem, 3vw, 4rem) clamp(6rem, 9vw, 12rem);
+            gap: 6.4rem;
           }
 
           .dp-header {
             display: flex; flex-direction: column;
-            align-items: flex-start; padding: 0; gap: 32px;
-            width: clamp(480px, 65vw, 782px);
+            align-items: flex-start; padding: 0; gap: 3.2rem;
+            width: clamp(48rem, 65vw, 78.2rem);
           }
           .dp-heading {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(28px, 2.8vw, 40px);
-            line-height: 120%; letter-spacing: -0.01em;
+            font-size: clamp(2.8rem, 2.8vw, 4rem);
+            line-height: 1.2; letter-spacing: -0.01em;
             color: #131313; margin: 0;
           }
           .dp-subtext {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 120%; color: #222222; margin: 0;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 1.2; color: #222222; margin: 0;
           }
 
           .dp-rows {
             display: flex; flex-direction: column;
-            align-items: flex-start; padding: 0; gap: 18px; width: 100%;
+            align-items: flex-start; padding: 0; gap: 1.8rem; width: 100%;
           }
           .dp-row {
             box-sizing: border-box;
             display: flex; flex-direction: row;
             justify-content: space-between; align-items: center;
-            padding: 1px 34px;
-            width: 100%; height: 93px;
+            padding: 1px 3.4rem;
+            width: 100%; height: 9.3rem;
             border: 1px solid #E9E9E9;
           }
           .dp-row-left {
             display: flex; flex-direction: row;
-            align-items: center; gap: 24px; flex: 1;
+            align-items: center; gap: 2.4rem; flex: 1;
           }
           .dp-row-inner {
             display: flex; flex-direction: row;
-            align-items: center; gap: clamp(24px, 8vw, 127px); flex: 1;
+            align-items: center; gap: clamp(2.4rem, 8vw, 12.7rem); flex: 1;
           }
           .dp-num {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 120%; color: #131313;
-            flex-shrink: 0; min-width: 23px;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 1.2; color: #131313;
+            flex-shrink: 0; min-width: 2.3rem;
           }
           .dp-title {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(16px, 1.5vw, 24px);
-            line-height: 120%; color: #131313; flex: 1;
+            font-size: clamp(1.6rem, 1.5vw, 2.4rem);
+            line-height: 1.2; color: #131313; flex: 1;
           }
           .dp-divider {
-            width: 0; height: 91px;
+            width: 0; height: 9.1rem;
             border-left: 1px solid rgba(233, 233, 233, 0.99);
             flex-shrink: 0;
           }
@@ -189,83 +189,83 @@ export default function DesignProcessSection() {
         }
 
         /* ============================================= */
-        /* MOBILE / TABLET (< 1024px)                   */
+        /* MOBILE / TABLET (< 102.4rem)                   */
         /* ============================================= */
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375em) {
           .dp-desktop { display: none !important; }
 
-          /* Figma: padding 48px 16px, gap 16px, align-items flex-end */
+          /* Figma: padding 4.8rem 1.6rem, gap 1.6rem, align-items flex-end */
           .dp-mobile {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            padding: clamp(32px, 8vw, 48px) 16px;
-            gap: 16px;
+            padding: clamp(3.2rem, 8vw, 4.8rem) 1.6rem;
+            gap: 1.6rem;
             width: 100%;
             box-sizing: border-box;
           }
 
-          /* Header: gap 20px */
+          /* Header: gap 2rem */
           .dp-mobile-header {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 20px;
+            align-items: flex-start; gap: 2rem;
             width: 100%;
           }
 
-          /* Heading: Haffer XH-TRIAL 22px, line-height 26px */
+          /* Heading: Haffer XH-TRIAL 2.2rem, line-height 2.6rem */
           .dp-mobile-heading {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(20px, 5.5vw, 22px);
-            line-height: 26px; letter-spacing: -0.01em;
+            font-size: clamp(2rem, 5.5vw, 2.2rem);
+            line-height: 2.6rem; letter-spacing: -0.01em;
             color: #131313; margin: 0;
             width: 100%;
           }
 
-          /* Description: Haffer-TRIAL 16px, line-height 140% */
+          /* Description: Haffer-TRIAL 1.6rem, line-height 140% */
           .dp-mobile-desc {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(14px, 4vw, 16px);
-            line-height: 140%; color: #222222; margin: 0;
+            font-size: clamp(1.4rem, 4vw, 1.6rem);
+            line-height: 1.4; color: #222222; margin: 0;
             width: 100%;
           }
 
-          /* Steps container: gap 12px */
+          /* Steps container: gap 1.2rem */
           .dp-mobile-steps {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 12px;
+            align-items: flex-start; gap: 1.2rem;
             width: 100%;
           }
 
-          /* Each step: 56px tall, bordered, padding 8px 12px 8px 18px */
+          /* Each step: 5.6rem tall, bordered, padding 0.8rem 1.2rem 0.8rem 1.8rem */
           .dp-mobile-step {
             box-sizing: border-box;
             display: flex; flex-direction: row;
             justify-content: space-between; align-items: center;
-            padding: 8px 12px 8px 18px;
-            width: 100%; min-height: 56px;
+            padding: 0.8rem 1.2rem 0.8rem 1.8rem;
+            width: 100%; min-height: 5.6rem;
             border: 1px solid #E9E9E9;
             flex-shrink: 0;
           }
 
-          /* Step text: Haffer-TRIAL 14px */
+          /* Step text: Haffer-TRIAL 1.4rem */
           .dp-mobile-step-text {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(13px, 3.7vw, 14px);
-            line-height: 120%; color: #131313; flex: 1;
+            font-size: clamp(1.3rem, 3.7vw, 1.4rem);
+            line-height: 1.2; color: #131313; flex: 1;
           }
         }
 
         /* Tablets: slightly larger step text */
-        @media (min-width: 600px) and (max-width: 1023px) {
+        @media (min-width: 37.5em) and (max-width: 63.9375em) {
           .dp-mobile {
-            padding-left: clamp(16px, 5vw, 40px);
-            padding-right: clamp(16px, 5vw, 40px);
+            padding-left: clamp(1.6rem, 5vw, 4rem);
+            padding-right: clamp(1.6rem, 5vw, 4rem);
           }
-          .dp-mobile-heading { font-size: clamp(20px, 3.5vw, 26px); }
-          .dp-mobile-step-text { font-size: 15px; }
+          .dp-mobile-heading { font-size: clamp(2rem, 3.5vw, 2.6rem); }
+          .dp-mobile-step-text { font-size: 1.5rem; }
         }
       `}</style>
     </section>

@@ -55,7 +55,7 @@ function Panel000({ textRef, btnRef, btnTextRef, btnIconRef, flairRef, onBtnEnte
               className="absolute pointer-events-none rounded-full"
               style={{ width: 10, height: 10, background: '#131313', top: 0, left: 0, transform: 'translate(-50%, -50%) scale(0)', zIndex: 0 }}
             />
-            <div className="relative z-10 flex items-center gap-[12px]">
+            <div className="relative z-10 flex items-center gap-[1.2rem]">
               <span ref={btnTextRef} className="btn-000-text inline-block transition-colors duration-200 group-hover:text-white">Let's Talk</span>
               <div ref={btnIconRef} className="btn-000-icon inline-block transition-colors duration-200 group-hover:text-white"><MailIcon /></div>
             </div>
@@ -80,11 +80,11 @@ function PanelMerged({ textRef }) {
                 <span 
                   className="inline-block"
                   style={{
-                    width: '38px', height: '42px',
+                    width: '3.8rem', height: '4.2rem',
                     background: '#6972F0',
                     border: '1.4px solid #6972F0',
-                    borderRadius: '0 0 20px 20px',
-                    margin: '0 4px',
+                    borderRadius: '0 0 2rem 2rem',
+                    margin: '0 0.4rem',
                     verticalAlign: 'middle'
                   }}
                   aria-hidden="true"
@@ -101,7 +101,7 @@ function PanelMerged({ textRef }) {
              <div className="text-merged-effortless" style={{ fontWeight: 500 }}>is effortless and</div>
              
              <div className="text-merged-understanding">
-               <span style={{ color: '#9295FE', fontFamily: 'Nohemi', marginRight: '16px' }}>understanding</span>
+               <span style={{ color: '#9295FE', fontFamily: 'Nohemi', marginRight: '1.6rem' }}>understanding</span>
                <span style={{ color: '#131313', fontFamily: 'var(--font-custom-xh)', fontWeight: 500 }}>is</span>
              </div>
              
@@ -115,7 +115,7 @@ function PanelMerged({ textRef }) {
                       borderLeft: '0.28em solid transparent',
                       borderRight: '0.28em solid transparent',
                       borderBottom: '0.55em solid #01CB70',
-                      margin: '0 4px',
+                      margin: '0 0.4rem',
                       verticalAlign: 'baseline',
                     }}
                     aria-hidden="true"
@@ -134,7 +134,7 @@ function PanelMerged({ textRef }) {
   )
 }
 
-/* ── Mobile Layout — shown only on < 1024px ─────────────── */
+/* ── Mobile Layout — shown only on < 102.4rem ─────────────── */
 function MobileAboutLayout({ introRef, descRef, mobileBtnRef, mobileBtnTextRef, mobileBtnIconRef, mobileFlairRef, onBtnEnter, onBtnLeave, onBtnMove }) {
   return (
     <div className="about-mobile-layout">
@@ -162,7 +162,7 @@ function MobileAboutLayout({ introRef, descRef, mobileBtnRef, mobileBtnTextRef, 
           className="absolute pointer-events-none rounded-full"
           style={{ width: 10, height: 10, background: '#131313', top: 0, left: 0, transform: 'translate(-50%, -50%) scale(0)', zIndex: 0 }}
         />
-        <div className="relative z-10 flex items-center gap-[12px]">
+        <div className="relative z-10 flex items-center gap-[1.2rem]">
           <span ref={mobileBtnTextRef} className="btn-000-text inline-block">Let's Talk</span>
           <div ref={mobileBtnIconRef} className="btn-000-icon inline-block"><MailIcon /></div>
         </div>
@@ -197,7 +197,7 @@ export default function AboutSection() {
 
     /* ── Desktop: horizontal scroll pinning ────────────── */
     mm.add(
-      '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
+      '(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)',
       () => {
         const getScrollAmount = () => {
           if (!containerRef.current) return 0
@@ -303,7 +303,7 @@ export default function AboutSection() {
 
     /* ── Mobile / Tablet: vertical + scroll reveals ── */
     mm.add(
-      '(max-width: 1023px)',
+      '(max-width: 102.3rem)',
       () => {
         if (containerRef.current) {
           gsap.set(containerRef.current, { clearProps: 'all' })
@@ -408,7 +408,7 @@ export default function AboutSection() {
         <PanelMerged textRef={textMergedRef} />
       </div>
 
-      {/* Mobile layout — only shown on < 1024px */}
+      {/* Mobile layout — only shown on < 102.4rem */}
       <MobileAboutLayout
         introRef={mobileIntroRef}
         descRef={mobileDescRef}
@@ -427,40 +427,40 @@ export default function AboutSection() {
         /* ============================================= */
         .panel-000-desktop-wrapper {
           display: flex; flex-direction: column; align-items: flex-start;
-          padding: 113px 80px; gap: 10px; isolation: isolate;
-          width: 1185px; height: 662px; position: relative; flex-shrink: 0;
+          padding: 11.3rem 8rem; gap: 1rem; isolation: isolate;
+          width: 118.5rem; height: 66.2rem; position: relative; flex-shrink: 0;
         }
         .frame-000-main {
           display: flex; flex-direction: column; align-items: flex-start;
-          padding: 0px; gap: 40px; width: 771px; height: 278px; z-index: 2;
+          padding: 0px; gap: 4rem; width: 77.1rem; height: 27.8rem; z-index: 2;
         }
         .frame-000-text-container {
           display: flex; flex-direction: column; align-items: flex-start;
-          padding: 0px; gap: 48px; width: 771px; height: 174px;
+          padding: 0px; gap: 4.8rem; width: 77.1rem; height: 17.4rem;
         }
         .text-000-main {
-          width: 771px; height: 174px;
+          width: 77.1rem; height: 17.4rem;
           font-family: var(--font-custom);
           font-weight: 400;
-          font-size: clamp(32px, 3.7vw, 48px);
-          line-height: 120%; color: #181818;
+          font-size: clamp(3.2rem, 3.7vw, 4.8rem);
+          line-height: 1.2; color: #181818;
         }
         .btn-000-frame {
           box-sizing: border-box; display: flex; flex-direction: row;
           justify-content: center; align-items: center;
-          padding: 20px 28px; gap: 12px;
+          padding: 2rem 2.8rem; gap: 1.2rem;
           background: #FFFFFF; border: 1px solid #000000; border-radius: 40px;
           cursor: pointer; width: auto; height: auto;
         }
         .btn-000-text {
           font-family: 'Google Sans Flex', sans-serif;
-          font-weight: 500; font-size: 16px; line-height: 20px;
+          font-weight: 500; font-size: 1.6rem; line-height: 2rem;
           text-align: center; color: #181818; white-space: nowrap;
         }
-        .btn-000-icon svg { width: 24px; height: 24px; }
+        .btn-000-icon svg { width: 2.4rem; height: 2.4rem; }
         .vector-176-000 {
-          position: absolute; width: 153px; height: 172px;
-          left: 831.35px; top: 310.13px;
+          position: absolute; width: 15.3rem; height: 17.2rem;
+          left: 83.135rem; top: 31.012999999999998rem;
           transform: matrix(-0.97, 0.26, 0.26, 0.97, 0, 0); z-index: 1;
         }
 
@@ -469,69 +469,69 @@ export default function AboutSection() {
         /* ============================================= */
         .panel-merged-desktop-wrapper {
           display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
-          padding: 113px 0px 113px 105px; gap: 10px; isolation: isolate;
-          position: relative; width: 3645px; height: 662px; background: #FFFFFF; flex-shrink: 0;
+          padding: 11.3rem 0px 11.3rem 10.5rem; gap: 1rem; isolation: isolate;
+          position: relative; width: 364.5rem; height: 66.2rem; background: #FFFFFF; flex-shrink: 0;
         }
         .frame-merged-row {
           display: flex; flex-direction: row; align-items: center;
-          padding: 0px; gap: 16.77px;
-          width: 3146.18px; height: 94px; z-index: 0;
+          padding: 0px; gap: 1.677rem;
+          width: 314.618rem; height: 9.4rem; z-index: 0;
         }
         .text-merged-I, .text-merged-build, .text-merged-digital,
         .text-merged-effortless, .text-merged-understanding, .text-merged-instant {
           font-family: var(--font-custom-xh); font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
-          color: #131313; white-space: nowrap; height: 94px;
+          font-size: 7.82517rem; line-height: 1.2; letter-spacing: -0.02em;
+          color: #131313; white-space: nowrap; height: 9.4rem;
         }
         /* .text-merged-build line-height override removed for baseline alignment */
         .frame-merged-highlight {
           display: flex; flex-direction: row; justify-content: center; align-items: center;
-          padding: 0px 16.7682px; gap: 13.97px; height: 94px; background: #F6FF52;
+          padding: 0px 1.67682rem; gap: 1.397rem; height: 9.4rem; background: #F6FF52;
         }
         .text-merged-discoverability {
           font-family: 'Nohemi', sans-serif; font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.01em;
-          color: #010005; white-space: nowrap; height: 94px;
+          font-size: 7.82517rem; line-height: 1.2; letter-spacing: -0.01em;
+          color: #010005; white-space: nowrap; height: 9.4rem;
         }
         .frame-1321315526 {
-          height: 94px; position: relative; display: flex; align-items: center;
+          height: 9.4rem; position: relative; display: flex; align-items: center;
         }
         .text-merged-instant {
           font-family: var(--font-custom-xh); font-weight: 500;
-          font-size: 78.2517px; line-height: 120%; letter-spacing: -0.02em;
+          font-size: 7.82517rem; line-height: 1.2; letter-spacing: -0.02em;
           color: #01CB70; white-space: nowrap;
         }
         .vector-001-smiley {
-          position: absolute; width: 92px; height: 84.87px; left: 319px; top: 422.46px; z-index: 1;
+          position: absolute; width: 9.2rem; height: 8.487rem; left: 31.9rem; top: 42.245999999999995rem; z-index: 1;
         }
         .image-001-71 {
-          position: absolute; width: 152.5px; height: 171.5px; left: 750px; top: 75px; z-index: 2;
+          position: absolute; width: 15.25rem; height: 17.15rem; left: 75rem; top: 7.5rem; z-index: 2;
         }
         .group-13714 {
-          position: absolute; width: 145px; height: 150px; left: 1737px; top: 413px; z-index: 3;
+          position: absolute; width: 14.5rem; height: 15rem; left: 173.7rem; top: 41.3rem; z-index: 3;
         }
         .vector-003-ghost {
-          position: absolute; width: 84.38px; height: 92.69px; left: 2413px; top: 159px;
+          position: absolute; width: 8.437999999999999rem; height: 9.269rem; left: 241.3rem; top: 15.9rem;
           transform: matrix(-1, 0, 0, 1, 0, 0); z-index: 4;
         }
 
         /* ============================================= */
-        /* MOBILE LAYOUT (< 1024px)                     */
+        /* MOBILE LAYOUT (< 102.4rem)                     */
         /* ============================================= */
 
         /* Hide desktop horizontal scroll on mobile */
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375em) {
           .about-horizontal-wrapper {
             display: none !important;
           }
 
-          /* Mobile layout: Figma spec — padding 146px 16px 100px, gap 48px */
+          /* Mobile layout: Figma spec — padding 14.6rem 1.6rem 10rem, gap 4.8rem */
           .about-mobile-layout {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 120px 16px 100px;
-            gap: 48px;
+            padding: 12rem 1.6rem 10rem;
+            gap: 4.8rem;
             width: 100%;
             box-sizing: border-box;
           }
@@ -541,46 +541,46 @@ export default function AboutSection() {
             flex-direction: column;
             align-items: flex-start;
             padding: 0;
-            gap: 48px;
+            gap: 4.8rem;
             width: 100%;
           }
 
-          /* Intro text: Haffer-TRIAL, 28px → clamp for all sizes */
+          /* Intro text: Haffer-TRIAL, 2.8rem → clamp for all sizes */
           .about-mobile-intro {
             font-family: var(--font-custom);
             font-style: normal;
             font-weight: 400;
-            font-size: clamp(20px, 5.5vw, 28px);
-            line-height: 120%;
+            font-size: clamp(2rem, 5.5vw, 2.8rem);
+            line-height: 1.2;
             color: #181818;
             margin: 0;
             width: 100%;
           }
 
-          /* Desc text: Haffer XH-TRIAL, 28px → clamp */
+          /* Desc text: Haffer XH-TRIAL, 2.8rem → clamp */
           .about-mobile-desc {
             font-family: var(--font-custom-xh);
             font-style: normal;
             font-weight: 400;
-            font-size: clamp(20px, 5.5vw, 28px);
-            line-height: 120%;
+            font-size: clamp(2rem, 5.5vw, 2.8rem);
+            line-height: 1.2;
             letter-spacing: -0.02em;
             color: #131313;
             margin: 0;
             width: 100%;
           }
 
-          /* Mobile CTA button — Figma: padding 14px 16px, gap 12px */
+          /* Mobile CTA button — Figma: padding 1.4rem 1.6rem, gap 1.2rem */
           .btn-000-frame {
-            padding: 14px 16px !important;
+            padding: 1.4rem 1.6rem !important;
           }
           .btn-000-text {
-            font-size: 16px !important;
-            line-height: 20px !important;
+            font-size: 1.6rem !important;
+            line-height: 2rem !important;
             width: auto !important;
             height: auto !important;
           }
-          .btn-000-icon svg { width: 18px !important; height: 18px !important; }
+          .btn-000-icon svg { width: 1.8rem !important; height: 1.8rem !important; }
 
           /* Decorative vectors: always hidden on mobile */
           .vector-176-000, .vector-001-smiley, .image-001-71,
@@ -588,18 +588,18 @@ export default function AboutSection() {
         }
 
         /* Hide mobile layout on desktop */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .about-mobile-layout { display: none !important; }
         }
 
-        /* Extra small devices (≤ 375px) */
-        @media (max-width: 375px) {
+        /* Extra small devices (≤ 37.5rem) */
+        @media (max-width: 23.4375em) {
           .about-mobile-intro,
           .about-mobile-desc {
-            font-size: clamp(18px, 5vw, 22px);
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
           }
           .about-mobile-layout {
-            padding-top: 120px;
+            padding-top: 12rem;
           }
         }
       `}</style>

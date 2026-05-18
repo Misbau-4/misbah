@@ -8,10 +8,10 @@
  *            for prefers-reduced-motion accessibility.
  * Clock: live UTC/GMT, updates every second via setInterval.
  * Responsive:
- *   mobile  (<640px)  — name only on left, icon + links on right;
+ *   mobile  (<64rem)  — name only on left, icon + links on right;
  *                        clock hidden to avoid overflow.
  *   tablet  (640-1023) — name + clock on left, links + icon right.
- *   desktop (1024px+)  — same as tablet with wider horizontal padding.
+ *   desktop (102.4rem+)  — same as tablet with wider horizontal padding.
  */
 
 import { useEffect, useRef, useState, useContext } from 'react'
@@ -119,28 +119,28 @@ function MobileMenuOverlay({ isOpen, onClose }) {
   return (
     <div
       ref={overlayRef}
-      className="fixed top-0 left-0 w-full h-[100dvh] bg-white z-[100] flex flex-col items-center pb-[58px] gap-[39px] overflow-y-auto overflow-x-hidden"
+      className="fixed top-0 left-0 w-full h-[100dvh] bg-white z-[100] flex flex-col items-center pb-[5.8rem] gap-[3.9rem] overflow-y-auto overflow-x-hidden"
       style={{ visibility: isOpen ? 'visible' : 'hidden', opacity: isOpen ? 1 : 0 }}
       aria-hidden={!isOpen}
     >
       {/* Top bar (Frame 1321315528) */}
-      <div className="flex flex-row justify-end items-center px-4 py-6 w-full max-w-[375px] h-[76px] shrink-0">
-        <button onClick={onClose} aria-label="Close menu" className="w-[28px] h-[28px] flex items-center justify-center p-0 bg-transparent border-none cursor-pointer">
+      <div className="flex flex-row justify-end items-center px-4 py-6 w-full max-w-[37.5rem] h-[7.6rem] shrink-0">
+        <button onClick={onClose} aria-label="Close menu" className="w-[2.8rem] h-[2.8rem] flex items-center justify-center p-0 bg-transparent border-none cursor-pointer">
           <CloseIcon />
         </button>
       </div>
 
       {/* Main Content (Frame 1321315627) */}
-      <div className="flex flex-col items-center gap-[245px] w-[304px] shrink-0">
+      <div className="flex flex-col items-center gap-[24.5rem] w-[30.4rem] shrink-0">
         
         {/* Links Frame (Frame 1321315626) */}
-        <div className="flex flex-col items-center gap-[39px] w-[304px]">
+        <div className="flex flex-col items-center gap-[3.9rem] w-[30.4rem]">
           
           {/* Projects Frame */}
-          <div className="flex flex-col items-center gap-[20px]">
+          <div className="flex flex-col items-center gap-[2rem]">
             <div
               ref={projectsRef}
-              className="w-full text-center text-[48px] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
+              className="w-full text-center text-[4.8rem] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
               style={{ fontFamily: 'var(--font-custom)', opacity: activePreview === 'projects' ? 1 : 1 }}
               onClick={() => setActivePreview('projects')}
             >
@@ -150,14 +150,14 @@ function MobileMenuOverlay({ isOpen, onClose }) {
             {/* Image shown only when Projects is active */}
             {activePreview === 'projects' && (
               <div 
-                className="w-[181px] h-[132px] cursor-pointer transition-transform duration-200 hover:scale-105 rounded-[2px]"
+                className="w-[18.1rem] h-[13.2rem] cursor-pointer transition-transform duration-200 hover:scale-105 rounded-[2px]"
                 onClick={handleImageClick}
                 style={{ 
                   background: `url(${projectImage})`,
                   backgroundSize: '100% 100%',
                   backgroundPosition: 'center',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#fff', fontSize: '14px', fontWeight: 'bold'
+                  color: '#fff', fontSize: '1.4rem', fontWeight: 'bold'
                 }}
               >
                 Click to View Projects
@@ -166,13 +166,13 @@ function MobileMenuOverlay({ isOpen, onClose }) {
           </div>
 
           {/* Divider (Vector 124) */}
-          <div className="w-[304px] h-0 border-t-[2px] border-solid border-[rgba(198,198,198,0.45)]"></div>
+          <div className="w-[30.4rem] h-0 border-t-[2px] border-solid border-[rgba(198,198,198,0.45)]"></div>
 
           {/* About Frame */}
-          <div className="flex flex-col items-center gap-[20px]">
+          <div className="flex flex-col items-center gap-[2rem]">
             <div
               ref={aboutRef}
-              className="w-full text-center text-[48px] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
+              className="w-full text-center text-[4.8rem] leading-[120%] text-[#181818] cursor-pointer transition-opacity duration-300"
               style={{ fontFamily: 'var(--font-custom)', opacity: activePreview === 'about' ? 1 : 1 }}
               onClick={() => setActivePreview('about')}
             >
@@ -182,14 +182,14 @@ function MobileMenuOverlay({ isOpen, onClose }) {
             {/* Image shown only when About is active */}
             {activePreview === 'about' && (
               <div 
-                className="w-[181px] h-[132px] cursor-pointer transition-transform duration-200 hover:scale-105 rounded-[2px]"
+                className="w-[18.1rem] h-[13.2rem] cursor-pointer transition-transform duration-200 hover:scale-105 rounded-[2px]"
                 onClick={handleImageClick}
                 style={{ 
                   background: `url(${projectImage})`,
                   backgroundSize: '100% 100%',
                   backgroundPosition: 'center',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#fff', fontSize: '14px', fontWeight: 'bold'
+                  color: '#fff', fontSize: '1.4rem', fontWeight: 'bold'
                 }}
               >
                 Click to View About
@@ -199,8 +199,8 @@ function MobileMenuOverlay({ isOpen, onClose }) {
         </div>
 
         {/* CTA button (Frame) */}
-        <button ref={ctaRef} type="button" className="flex flex-row justify-center items-center px-4 py-[14px] gap-[12px] w-[131px] h-[48px] bg-white border border-solid border-black rounded-[40px] cursor-pointer shrink-0">
-          <span className="font-medium text-[16px] leading-[20px] text-[#181818]" style={{ fontFamily: "'Google Sans Flex', sans-serif" }}>Let's Talk</span>
+        <button ref={ctaRef} type="button" className="flex flex-row justify-center items-center px-4 py-[1.4rem] gap-[1.2rem] w-[13.1rem] h-[4.8rem] bg-white border border-solid border-black rounded-[4rem] cursor-pointer shrink-0">
+          <span className="font-medium text-[1.6rem] leading-[2rem] text-[#181818]" style={{ fontFamily: "'Google Sans Flex', sans-serif" }}>Let's Talk</span>
           <MailIcon />
         </button>
       </div>
@@ -281,7 +281,7 @@ export default function Navbar() {
           <Link
             to="/"
             id="nav-identity"
-            className="flex items-center gap-0 text-[14px] leading-[17px] lg:text-base font-normal tracking-tight text-[#0d0d0d] select-none whitespace-nowrap"
+            className="flex items-center gap-0 text-[1.4rem] leading-[1.7rem] lg:text-base font-normal tracking-tight text-[#0d0d0d] select-none whitespace-nowrap"
             style={{ textDecoration: 'none' }}
             aria-label="Go to home page"
           >
@@ -331,7 +331,7 @@ export default function Navbar() {
           <button
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
-            className="lg:hidden flex items-center justify-center w-[28px] h-[28px] bg-transparent border-none p-0 cursor-pointer"
+            className="lg:hidden flex items-center justify-center w-[2.8rem] h-[2.8rem] bg-transparent border-none p-0 cursor-pointer"
           >
             <HamburgerIcon />
           </button>

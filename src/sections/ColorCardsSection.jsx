@@ -54,13 +54,13 @@ export default function ColorCardsSection() {
         marginBottom: 80,
       }}
     >
-      {/* Content Container (1200px total width based on padding/gap/card logic) */}
+      {/* Content Container (120rem total width based on padding/gap/card logic) */}
       <div
         style={{
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'flex-start',
-          padding: '89px 160px',
+          padding: '8.9rem 16rem',
           gap: 98,
           background: '#ECEAED',
           width: 1200,

@@ -3,8 +3,8 @@
  *
  * Section : First / Hero
  * Layout  : Two-line headline — dark words + muted gray highlight words
- * Font    : Haffer XH-TRIAL, 80px, weight 400 (with DM Sans fallback)
- * Spacing : margin-top 109px, margin-left 188px (desktop — exact Figma)
+ * Font    : Haffer XH-TRIAL, 8rem, weight 400 (with DM Sans fallback)
+ * Spacing : margin-top 10.9rem, margin-left 18.8rem (desktop — exact Figma)
  *
  * Animation: GSAP Cursor Tracking Image Preview
  * ─────────────────────────────────────────────
@@ -119,7 +119,7 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* ── Container keeps headline within 1280px ───────── */}
+      {/* ── Container keeps headline within 128rem ───────── */}
       <Container>
         <h1
           className="hero-text font-normal"

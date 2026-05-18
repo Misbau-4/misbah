@@ -26,7 +26,7 @@ export default function HorizontalScrollWrapper() {
 
     /* ── Desktop: horizontal scroll with pinning ─────────── */
     mm.add(
-      '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
+      '(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)',
       () => {
         const panels = gsap.utils.toArray('.panel', containerRef.current)
 
@@ -47,7 +47,7 @@ export default function HorizontalScrollWrapper() {
 
     /* ── Tablet / Mobile / Reduced-motion: vertical stack ── */
     mm.add(
-      '(max-width: 1023px), (prefers-reduced-motion: reduce)',
+      '(max-width: 102.3rem), (prefers-reduced-motion: reduce)',
       () => {
         /* Remove horizontal layout — panels stack naturally */
         if (containerRef.current) {

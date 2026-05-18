@@ -51,7 +51,7 @@ export default function Preloader({ onComplete }) {
     // A: Square (w:43, x:0)
     // B: Triangle (w:49.36, x:55)
     // C: Circle (w:43, x:109)
-    // Container total width: 152px. To center this, GSAP moves absolute items.
+    // Container total width: 15.2rem. To center this, GSAP moves absolute items.
     gsap.set(elA.current, { x: 0 })
     gsap.set(elB.current, { x: 55 })
     gsap.set(elC.current, { x: 109 })
@@ -61,7 +61,7 @@ export default function Preloader({ onComplete }) {
     tl.to({}, { duration: 0.5 })
 
     // --- STATE 2 Swap (Morph In-Place) ---
-    // Container width expands to 159.36px
+    // Container width expands to 15.936000000000002rem
     // Element A (x=0) morphs from Rectangle to Triangle.
     // Element B (x=55) morphs from Triangle to Rectangle and shifts to x=61.36.
     // Element C (x=109) stays Circle and shifts to x=116.36.
@@ -81,7 +81,7 @@ export default function Preloader({ onComplete }) {
     tl.add(morphTo(elC, path_circle, path_arch, 0.6), "state3")
 
     // --- STATE 4 Morph 2 ---
-    // Container width: 171px
+    // Container width: 17.1rem
     // A (Left, Triangle) -> Blobby
     // B (Center, Slant) -> Slant, shifts to 73
     // C (Right, Arch) -> Arch, shifts to 128
@@ -92,7 +92,7 @@ export default function Preloader({ onComplete }) {
     tl.add(morphTo(elA, path_tri, path_blob, 0.6), "state4")
 
     // --- STATE 5 Morph 3 ---
-    // Container width: 172.08px
+    // Container width: 17.208000000000002rem
     // A (Left, Blobby) -> Triangle
     // B (Center, Slant) -> Slant, shifts to 61.36
     // C (Right, Arch) -> Complex3, shifts to 116.36
@@ -104,7 +104,7 @@ export default function Preloader({ onComplete }) {
     tl.add(morphTo(elC, path_arch, path_complex3, 0.6), "state5")
 
     // --- STATE 6 Morph 4 ---
-    // Container width: 159.36px
+    // Container width: 15.936000000000002rem
     // C (Right, Complex3) -> Arch
     tl.addLabel("state6", "+=0.3")
     tl.to(containerRef.current, { width: 159.36, duration: 0.6, ease: "power2.inOut" }, "state6")
@@ -118,8 +118,8 @@ export default function Preloader({ onComplete }) {
     tl.add(morphTo(elC, path_arch, path_circle, 0.6), "state7")
 
     // --- STATE 8 Collapse ---
-    // A (Left, Triangle) moves +50px and fades out
-    // C (Right, Circle) moves -50px and fades out
+    // A (Left, Triangle) moves +5rem and fades out
+    // C (Right, Circle) moves -5rem and fades out
     tl.addLabel("state8", "+=0.3")
     tl.to(elA.current, { x: "+=50", opacity: 0, duration: 0.5, ease: "power2.in" }, "state8")
     tl.to(elC.current, { x: "-=50", opacity: 0, duration: 0.5, ease: "power2.in" }, "state8")
@@ -139,7 +139,7 @@ export default function Preloader({ onComplete }) {
 
   return (
     <div className="preloader-bg fixed inset-0 z-[9999] bg-[#FF9750] overflow-hidden pointer-events-none">
-      <div ref={containerRef} className="absolute h-[46px]" style={{ width: 152 }}>
+      <div ref={containerRef} className="absolute h-[4.6rem]" style={{ width: 152 }}>
         
         {/* Element A (Starts as Square) */}
         <svg className="absolute top-0 overflow-visible" width="62" height="46" viewBox="0 0 62 46" fill="none" style={{ left: 0 }}>

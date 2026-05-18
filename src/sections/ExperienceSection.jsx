@@ -158,9 +158,9 @@ export default function ExperienceSection() {
         }
 
         /* ============================================= */
-        /* DESKTOP (≥ 1024px)                           */
+        /* DESKTOP (≥ 102.4rem)                           */
         /* ============================================= */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .exp-mobile { display: none !important; }
 
           .exp-desktop {
@@ -168,18 +168,18 @@ export default function ExperienceSection() {
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
-            padding: clamp(60px, 8vw, 108px) clamp(24px, 3vw, 40px);
-            gap: clamp(60px, 12vw, 175px);
+            padding: clamp(6rem, 8vw, 10.8rem) clamp(2.4rem, 3vw, 4rem);
+            gap: clamp(6rem, 12vw, 17.5rem);
           }
 
           .exp-left {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 40px; flex: 1;
+            align-items: flex-start; gap: 4rem; flex: 1;
             min-width: 0;
           }
           .exp-list {
             display: flex; flex-direction: column;
-            align-items: center; gap: 30px; align-self: stretch;
+            align-items: center; gap: 3rem; align-self: stretch;
           }
           .exp-item {
             display: flex; flex-direction: column;
@@ -188,24 +188,24 @@ export default function ExperienceSection() {
           .exp-row {
             display: flex; flex-direction: row;
             justify-content: space-between; align-items: center;
-            padding: 0; gap: clamp(40px, 20vw, 369px);
-            align-self: stretch; margin-bottom: 8px;
+            padding: 0; gap: clamp(4rem, 20vw, 36.9rem);
+            align-self: stretch; margin-bottom: 0.8rem;
           }
           .exp-details {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 8px; flex: 1;
+            align-items: flex-start; gap: 0.8rem; flex: 1;
           }
           .exp-title {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 40px; text-transform: uppercase; color: #131313; display: block;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 4rem; text-transform: uppercase; color: #131313; display: block;
           }
           .exp-duration {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(14px, 1.2vw, 17px);
-            line-height: 24px; text-transform: uppercase; color: #131313; display: block;
+            font-size: clamp(1.4rem, 1.2vw, 1.7rem);
+            line-height: 2.4rem; text-transform: uppercase; color: #131313; display: block;
           }
           .exp-divider {
             width: 100%; height: 0; border: none;
@@ -214,31 +214,31 @@ export default function ExperienceSection() {
           }
           .exp-cta {
             display: flex; flex-direction: row;
-            align-items: center; padding: 0; gap: 16px;
+            align-items: center; padding: 0; gap: 1.6rem;
           }
           .exp-cta-btn {
             display: flex; flex-direction: row;
-            align-items: center; padding: 0; gap: 12px;
+            align-items: center; padding: 0; gap: 1.2rem;
             background: none; border: none; cursor: pointer;
           }
           .exp-cta-text {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 40px; text-decoration: underline;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 4rem; text-decoration: underline;
             text-transform: capitalize; color: #131313;
           }
 
           .exp-right {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 44px;
-            width: clamp(280px, 40vw, 534px); flex-shrink: 0;
+            align-items: flex-start; gap: 4.4rem;
+            width: clamp(28rem, 40vw, 53.4rem); flex-shrink: 0;
           }
           .exp-desc {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 120%; margin: 0;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 1.2; margin: 0;
             width: 100%;
           }
           .exp-desc-grey { color: #999999; }
@@ -246,17 +246,17 @@ export default function ExperienceSection() {
         }
 
         /* ============================================= */
-        /* MOBILE / TABLET (< 1024px)                   */
+        /* MOBILE / TABLET (< 102.4rem)                   */
         /* ============================================= */
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375em) {
           .exp-desktop { display: none !important; }
 
           .exp-mobile {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: clamp(40px, 8vw, 56px) 16px 48px;
-            gap: 64px;
+            padding: clamp(4rem, 8vw, 5.6rem) 1.6rem 4.8rem;
+            gap: 6.4rem;
             width: 100%;
             box-sizing: border-box;
           }
@@ -264,10 +264,10 @@ export default function ExperienceSection() {
           /* Image — Figma: 343×250 */
           .exp-mobile-img-wrap {
             width: 100%;
-            max-width: 343px;
-            height: clamp(180px, 50vw, 250px);
+            max-width: 34.3rem;
+            height: clamp(18rem, 50vw, 25rem);
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 0.4rem;
             align-self: center;
           }
           .exp-mobile-img {
@@ -276,42 +276,42 @@ export default function ExperienceSection() {
 
           /* Description container */
           .exp-mobile-desc-wrap {
-            display: flex; flex-direction: column; gap: 44px; width: 100%;
+            display: flex; flex-direction: column; gap: 4.4rem; width: 100%;
           }
           .exp-mobile-desc-grey {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(16px, 4.5vw, 18px);
-            line-height: 140%; color: #999999; margin: 0; width: 100%;
+            font-size: clamp(1.6rem, 4.5vw, 1.8rem);
+            line-height: 1.4; color: #999999; margin: 0; width: 100%;
           }
           .exp-mobile-desc-dark {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(16px, 4.5vw, 18px);
-            line-height: 140%; color: #131313; margin: 0; width: 100%;
+            font-size: clamp(1.6rem, 4.5vw, 1.8rem);
+            line-height: 1.4; color: #131313; margin: 0; width: 100%;
           }
 
           /* Experience list */
           .exp-mobile-list {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 40px; width: 100%;
+            align-items: flex-start; gap: 4rem; width: 100%;
           }
           .exp-mobile-item {
             display: flex; flex-direction: column;
-            align-items: flex-start; gap: 4px; width: 100%;
+            align-items: flex-start; gap: 0.4rem; width: 100%;
           }
           .exp-mobile-title {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(14px, 4vw, 16px);
-            line-height: 120%; text-transform: uppercase; color: #131313; display: block;
+            font-size: clamp(1.4rem, 4vw, 1.6rem);
+            line-height: 1.2; text-transform: uppercase; color: #131313; display: block;
           }
           .exp-mobile-duration {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(12px, 3.5vw, 14px);
-            line-height: 24px; text-transform: uppercase; color: #131313; display: block;
-            margin-bottom: 8px;
+            font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+            line-height: 2.4rem; text-transform: uppercase; color: #131313; display: block;
+            margin-bottom: 0.8rem;
           }
           .exp-divider {
             width: 100%; height: 0; border: none;
@@ -323,27 +323,27 @@ export default function ExperienceSection() {
           .exp-mobile-cta { display: flex; }
           .exp-cta-btn {
             display: flex; flex-direction: row;
-            align-items: center; gap: 12px;
+            align-items: center; gap: 1.2rem;
             background: none; border: none; cursor: pointer; padding: 0;
           }
           .exp-mobile-cta-text {
             font-family: var(--font-custom);
             font-weight: 400;
-            font-size: clamp(14px, 4vw, 16px);
-            line-height: 120%; text-decoration: underline;
+            font-size: clamp(1.4rem, 4vw, 1.6rem);
+            line-height: 1.2; text-decoration: underline;
             text-transform: capitalize; color: #131313;
           }
         }
 
         /* Tablets: center image, wider content */
-        @media (min-width: 600px) and (max-width: 1023px) {
+        @media (min-width: 37.5em) and (max-width: 63.9375em) {
           .exp-mobile-img-wrap {
-            max-width: clamp(343px, 70vw, 560px);
-            height: clamp(200px, 40vw, 320px);
+            max-width: clamp(34.3rem, 70vw, 56rem);
+            height: clamp(20rem, 40vw, 32rem);
           }
           .exp-mobile {
-            padding-left: clamp(16px, 5vw, 48px);
-            padding-right: clamp(16px, 5vw, 48px);
+            padding-left: clamp(1.6rem, 5vw, 4.8rem);
+            padding-right: clamp(1.6rem, 5vw, 4.8rem);
           }
         }
       `}</style>

@@ -2,7 +2,7 @@
  * Container.jsx
  *
  * Reusable max-width wrapper used by every section.
- * Caps content at 1280px and centres it horizontally.
+ * Caps content at 128rem and centres it horizontally.
  * The outer element of each section (background, border, etc.)
  * remains full-width — only the content inside is constrained.
  *

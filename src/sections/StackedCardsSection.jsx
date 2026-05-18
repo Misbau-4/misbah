@@ -9,7 +9,7 @@
  *   3. Right card        (473×384, left:629.92, top:152.3,  rotate(6.26°))   — z:1 (back)
  *
  * Interactions:
- *   • Hover  → rotate −4.96° (anticlockwise from current angle) + translateY(+10px)
+ *   • Hover  → rotate −4.96° (anticlockwise from current angle) + translateY(+1rem)
  *   • Click  → card lifts to top of stack (centre of section, z:20)
  *   • Mouse  leave (lifted) → returns to original position + rotation
  *   • Scroll reveal → simple fade-in + settle with back.out ease, staggered
@@ -104,7 +104,7 @@ export default function StackedCardsSection() {
     { scope: sectionRef }
   )
 
-  /* ── Hover: anticlockwise −4.96° + slide down 10px ──────── */
+  /* ── Hover: anticlockwise −4.96° + slide down 1rem ──────── */
   const handleEnter = contextSafe((i) => {
     if (liftedRef.current[i]) return
     gsap.to(cardRefs.current[i], {

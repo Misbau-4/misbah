@@ -3,8 +3,8 @@
  *
  * Full projects listing page.
  * Desktop: 3-column grid, large typography, wide padding
- * Mobile:  Figma-exact — margin-top 120px, 16px side padding, single column,
- *          filter row gap 12px, article 250px image + 24px case-study row
+ * Mobile:  Figma-exact — margin-top 12rem, 1.6rem side padding, single column,
+ *          filter row gap 1.2rem, article 25rem image + 2.4rem case-study row
  */
 
 import { useState, useRef, useEffect } from 'react'
@@ -69,7 +69,7 @@ function ProjectCard({ project, mobile = false }) {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
-      {/* Image block — Figma: 250px tall on mobile, aspect 343/250 */}
+      {/* Image block — Figma: 25rem tall on mobile, aspect 343/250 */}
       <a
         href={project.linkHref}
         aria-label={`Visit ${project.name}`}
@@ -92,7 +92,7 @@ function ProjectCard({ project, mobile = false }) {
         </div>
       </a>
 
-      {/* Case Study row — Figma: space-between, 17px uppercase name + muted link */}
+      {/* Case Study row — Figma: space-between, 1.7rem uppercase name + muted link */}
       <div className="proj-meta">
         <span className="proj-name">{project.name}</span>
         <a href={project.linkHref} className="proj-link">
@@ -204,7 +204,7 @@ export default function Projects() {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          gap: 17px;
+          gap: 1.7rem;
           cursor: pointer;
         }
         .proj-img-link {
@@ -227,8 +227,8 @@ export default function Projects() {
         .proj-name {
           font-family: var(--font-custom);
           font-weight: 700;
-          font-size: 17px;
-          line-height: 24px;
+          font-size: 1.7rem;
+          line-height: 2.4rem;
           text-transform: uppercase;
           color: #131313;
           white-space: nowrap;
@@ -237,14 +237,14 @@ export default function Projects() {
           display: flex;
           flex-direction: row;
           align-items: center;
-          gap: 8px;
+          gap: 0.8rem;
           text-decoration: none;
         }
         .proj-link-text {
           font-family: var(--font-custom);
           font-weight: 400;
-          font-size: 17px;
-          line-height: 24px;
+          font-size: 1.7rem;
+          line-height: 2.4rem;
           color: #636363;
           white-space: nowrap;
         }
@@ -254,7 +254,7 @@ export default function Projects() {
           display: flex;
           flex-direction: row;
           align-items: center;
-          gap: 6px;
+          gap: 0.6rem;
           background: none;
           border: none;
           padding: 0;
@@ -262,8 +262,8 @@ export default function Projects() {
         }
         .filter-name {
           font-family: var(--font-custom);
-          font-size: 14px;
-          line-height: 24px;
+          font-size: 1.4rem;
+          line-height: 2.4rem;
           transition: color 0.2s;
           white-space: nowrap;
         }
@@ -271,39 +271,39 @@ export default function Projects() {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 4px;
-          width: 30px;
-          height: 25px;
+          padding: 0.4rem;
+          width: 3rem;
+          height: 2.5rem;
           background: #F6F6F6;
-          border-radius: 32px;
+          border-radius: 3.2rem;
           font-family: var(--font-custom);
           font-weight: 400;
-          font-size: 14px;
-          line-height: 120%;
+          font-size: 1.4rem;
+          line-height: 1.2;
           color: #A9B5B9;
         }
 
         /* ============================================= */
-        /* DESKTOP (≥ 1024px)                           */
+        /* DESKTOP (≥ 102.4rem)                           */
         /* ============================================= */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .projects-main {
-            padding: 180px 40px 161px;
+            padding: 18rem 4rem 16.1rem;
           }
           .projects-container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 68px;
+            gap: 6.8rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 120rem;
             margin: 0 auto;
           }
           .projects-title {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(48px, 6vw, 78.25px);
-            line-height: 120%;
+            font-size: clamp(4.8rem, 6vw, 7.825rem);
+            line-height: 1.2;
             letter-spacing: -0.02em;
             color: #131313;
             margin: 0; width: 100%;
@@ -312,7 +312,7 @@ export default function Projects() {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 48px;
+            gap: 4.8rem;
             width: 100%;
           }
           .projects-filters {
@@ -320,13 +320,13 @@ export default function Projects() {
             flex-direction: row;
             align-items: center;
             flex-wrap: wrap;
-            gap: 16px 56px;
+            gap: 1.6rem 5.6rem;
           }
-          .filter-name { font-size: 17px; }
+          .filter-name { font-size: 1.7rem; }
           .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 64px 40px;
+            gap: 6.4rem 4rem;
             width: 100%;
           }
           .proj-img-wrap {
@@ -334,23 +334,23 @@ export default function Projects() {
           }
         }
 
-        /* ── Tablet (768–1023px) ── */
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .projects-main { padding: 140px 32px 100px; }
-          .projects-container { gap: 48px; }
-          .projects-title { font-size: clamp(36px, 5vw, 52px); }
-          .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
+        /* ── Tablet (768–102.3rem) ── */
+        @media (min-width: 48em) and (max-width: 63.9375em) {
+          .projects-main { padding: 14rem 3.2rem 10rem; }
+          .projects-container { gap: 4.8rem; }
+          .projects-title { font-size: clamp(3.6rem, 5vw, 5.2rem); }
+          .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 4.8rem 3.2rem; }
           .proj-img-wrap { aspect-ratio: 352 / 300; }
-          .projects-filters { gap: 12px 32px; }
+          .projects-filters { gap: 1.2rem 3.2rem; }
         }
 
         /* ============================================= */
-        /* MOBILE (< 768px) — Figma exact               */
+        /* MOBILE (< 76.8rem) — Figma exact               */
         /* ============================================= */
-        @media (max-width: 767px) {
-          /* Figma: position relative, padding 0 16px, margin-top 120px on container */
+        @media (max-width: 47.9375em) {
+          /* Figma: position relative, padding 0 1.6rem, margin-top 12rem on container */
           .projects-main {
-            padding: 0 16px;
+            padding: 0 1.6rem;
             box-sizing: border-box;
           }
 
@@ -358,18 +358,18 @@ export default function Projects() {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 48px;
+            gap: 4.8rem;
             width: 100%;
-            margin-top: 120px;
-            padding-bottom: 80px;
+            margin-top: 12rem;
+            padding-bottom: 8rem;
           }
 
-          /* Title: Haffer XH-TRIAL 32px, letter-spacing -0.02em */
+          /* Title: Haffer XH-TRIAL 3.2rem, letter-spacing -0.02em */
           .projects-title {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(28px, 8vw, 32px);
-            line-height: 120%;
+            font-size: clamp(2.8rem, 8vw, 3.2rem);
+            line-height: 1.2;
             letter-spacing: -0.02em;
             color: #131313;
             margin: 0;
@@ -380,56 +380,56 @@ export default function Projects() {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 40px;
+            gap: 4rem;
             width: 100%;
           }
 
-          /* Filters: row, gap 12px, no wrap → horizontal scroll if overflow */
+          /* Filters: row, gap 1.2rem, no wrap → horizontal scroll if overflow */
           .projects-filters {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 12px;
+            gap: 1.2rem;
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding-bottom: 4px;
+            padding-bottom: 0.4rem;
           }
           .projects-filters::-webkit-scrollbar { display: none; }
 
-          /* Filter name: 14px */
-          .filter-name { font-size: 14px; }
+          /* Filter name: 1.4rem */
+          .filter-name { font-size: 1.4rem; }
 
-          /* Projects box: flex-col, gap 40px */
+          /* Projects box: flex-col, gap 4rem */
           .projects-grid {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 40px;
+            gap: 4rem;
             width: 100%;
           }
 
-          /* Each article: full width, gap 17px */
+          /* Each article: full width, gap 1.7rem */
           .project-card {
             width: 100%;
           }
 
-          /* Image: 250px tall — Figma spec */
+          /* Image: 25rem tall — Figma spec */
           .proj-img-wrap {
-            height: clamp(200px, 55vw, 250px);
+            height: clamp(20rem, 55vw, 25rem);
             width: 100%;
           }
 
           /* Case study row */
-          .proj-name { font-size: 17px; }
-          .proj-link-text { font-size: 17px; }
+          .proj-name { font-size: 1.7rem; }
+          .proj-link-text { font-size: 1.7rem; }
         }
 
-        /* Extra small (≤ 375px) */
-        @media (max-width: 375px) {
-          .projects-title { font-size: 28px; }
-          .projects-container { margin-top: 100px; }
+        /* Extra small (≤ 37.5rem) */
+        @media (max-width: 23.4375em) {
+          .projects-title { font-size: 2.8rem; }
+          .projects-container { margin-top: 10rem; }
         }
       `}</style>
     </>

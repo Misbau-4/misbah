@@ -21,11 +21,11 @@ const DESKTOP_SLOT_INDEXES = [0, 1, 2, 3, 4]
 const MOBILE_SLOT_INDEXES  = [0, 1, 2]
 
 const DESKTOP_SLOT_CONFIG = [
-  { width: 204, padding: '39px 48px' },
-  { width: 204, padding: '39px 48px' },
-  { width: 204, padding: '39px 48px' },
-  { width: 204, padding: '39px 48px' },
-  { width: 204, padding: '39px 48px' },
+  { width: 204, padding: '3.9rem 4.8rem' },
+  { width: 204, padding: '3.9rem 4.8rem' },
+  { width: 204, padding: '3.9rem 4.8rem' },
+  { width: 204, padding: '3.9rem 4.8rem' },
+  { width: 204, padding: '3.9rem 4.8rem' },
 ]
 
 const MOBILE_SLOT_CONFIG = [
@@ -46,7 +46,7 @@ export default function BrandSection() {
       const mm = gsap.matchMedia()
 
       /* ── Desktop crossfade ── */
-      mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)', () => {
         desktopSlotRefs.current.forEach((el, slotIdx) => {
           if (!el) return
 
@@ -63,7 +63,7 @@ export default function BrandSection() {
 
           const applyBrandStyle = (brand) => {
             if (brand.src) {
-              el.innerHTML = `<img src="${brand.src}" alt="${brand.name}" style="height: 30px; width: auto; object-fit: contain; display: block;" />`
+              el.innerHTML = `<img src="${brand.src}" alt="${brand.name}" style="height: 3rem; width: auto; object-fit: contain; display: block;" />`
             } else {
               el.style.fontSize      = `${brand.fontSize}px`
               el.style.fontWeight    = brand.fontWeight
@@ -94,7 +94,7 @@ export default function BrandSection() {
       })
 
       /* ── Mobile crossfade (3 slots) ── */
-      mm.add('(max-width: 1023px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(max-width: 102.3rem) and (prefers-reduced-motion: no-preference)', () => {
         mobileSlotRefs.current.forEach((el, slotIdx) => {
           if (!el) return
 
@@ -111,7 +111,7 @@ export default function BrandSection() {
 
           const applyBrandStyle = (brand) => {
             if (brand.src) {
-              el.innerHTML = `<img src="${brand.src}" alt="${brand.name}" style="height: 24px; width: auto; object-fit: contain; display: block;" />`
+              el.innerHTML = `<img src="${brand.src}" alt="${brand.name}" style="height: 2.4rem; width: auto; object-fit: contain; display: block;" />`
             } else {
               const scale = 0.75
               el.style.fontSize      = `${Math.round(brand.fontSize * scale)}px`
@@ -168,7 +168,7 @@ export default function BrandSection() {
                 }}
               >
                 {BRANDS[DESKTOP_SLOT_INDEXES[i]].src ? (
-                  <img src={BRANDS[DESKTOP_SLOT_INDEXES[i]].src} alt={BRANDS[DESKTOP_SLOT_INDEXES[i]].name} style={{ height: '30px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+                  <img src={BRANDS[DESKTOP_SLOT_INDEXES[i]].src} alt={BRANDS[DESKTOP_SLOT_INDEXES[i]].name} style={{ height: '3rem', width: 'auto', objectFit: 'contain', display: 'block' }} />
                 ) : (
                   BRANDS[DESKTOP_SLOT_INDEXES[i]].name
                 )}
@@ -198,7 +198,7 @@ export default function BrandSection() {
                 }}
               >
                 {BRANDS[MOBILE_SLOT_INDEXES[i]].src ? (
-                  <img src={BRANDS[MOBILE_SLOT_INDEXES[i]].src} alt={BRANDS[MOBILE_SLOT_INDEXES[i]].name} style={{ height: '24px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+                  <img src={BRANDS[MOBILE_SLOT_INDEXES[i]].src} alt={BRANDS[MOBILE_SLOT_INDEXES[i]].name} style={{ height: '2.4rem', width: 'auto', objectFit: 'contain', display: 'block' }} />
                 ) : (
                   BRANDS[MOBILE_SLOT_INDEXES[i]].name
                 )}
@@ -218,47 +218,47 @@ export default function BrandSection() {
         }
 
         /* ============================================= */
-        /* DESKTOP (≥ 1024px)                           */
+        /* DESKTOP (≥ 102.4rem)                           */
         /* ============================================= */
-        @media (min-width: 1024px) {
+        @media (min-width: 64em) {
           .brands-mobile { display: none !important; }
 
           .brands-desktop {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 32px 21px 94px;
-            gap: 32px;
+            padding: 3.2rem 2.1rem 9.4rem;
+            gap: 3.2rem;
             width: 100%;
           }
 
           .brands-header-pill {
             display: flex; justify-content: center; align-items: center;
-            padding: 10px; gap: 10px;
-            width: 315px; height: 49px;
+            padding: 1rem; gap: 1rem;
+            width: 31.5rem; height: 4.9rem;
             background: #F7F7F7; flex-shrink: 0;
           }
           .brands-header-text {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(18px, 1.7vw, 24px);
-            line-height: 120%;
+            font-size: clamp(1.8rem, 1.7vw, 2.4rem);
+            line-height: 1.2;
             color: #131313;
           }
 
           .brands-logo-wrap {
             display: flex; flex-direction: row; align-items: center;
-            padding: 0; gap: 48px;
-            width: min(1238px, 100%);
-            height: 100px; flex-shrink: 0;
+            padding: 0; gap: 4.8rem;
+            width: min(123.8rem, 100%);
+            height: 10rem; flex-shrink: 0;
             mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
           }
           .brands-slot-desktop {
             display: flex; flex-direction: column;
             align-items: flex-start;
-            gap: 10px; height: 100px;
-            border-radius: 48px; flex-shrink: 0; overflow: hidden;
+            gap: 1rem; height: 10rem;
+            border-radius: 4.8rem; flex-shrink: 0; overflow: hidden;
             box-sizing: border-box;
           }
           .brands-slot-text-desktop {
@@ -269,17 +269,17 @@ export default function BrandSection() {
         }
 
         /* ============================================= */
-        /* MOBILE / TABLET (< 1024px)                   */
+        /* MOBILE / TABLET (< 102.4rem)                   */
         /* ============================================= */
-        @media (max-width: 1023px) {
+        @media (max-width: 63.9375em) {
           .brands-desktop { display: none !important; }
 
           .brands-mobile {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 16px 48px;
-            gap: 30px;
+            padding: 0 1.6rem 4.8rem;
+            gap: 3rem;
             width: 100%;
             box-sizing: border-box;
           }
@@ -287,16 +287,16 @@ export default function BrandSection() {
           /* Header pill — Figma: 168×34 */
           .brands-mobile-pill {
             display: flex; justify-content: center; align-items: center;
-            padding: 10px;
-            width: clamp(140px, 45vw, 168px);
-            height: 34px;
+            padding: 1rem;
+            width: clamp(14rem, 45vw, 16.8rem);
+            height: 3.4rem;
             background: #F7F7F7;
           }
           .brands-mobile-pill-text {
             font-family: var(--font-custom-xh);
             font-weight: 400;
-            font-size: clamp(10px, 3vw, 12px);
-            line-height: 14px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.4rem;
             color: #131313;
             white-space: nowrap;
           }
@@ -307,10 +307,10 @@ export default function BrandSection() {
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            gap: clamp(16px, 5vw, 24px);
+            gap: clamp(1.6rem, 5vw, 2.4rem);
             width: 100%;
-            max-width: 343px;
-            height: 61px;
+            max-width: 34.3rem;
+            height: 6.1rem;
           }
           .brands-mobile-slot {
             display: flex;
@@ -318,9 +318,9 @@ export default function BrandSection() {
             justify-content: center;
             align-items: flex-start;
             flex: 1;
-            height: 61px;
+            height: 6.1rem;
             overflow: hidden;
-            padding: 16px 16px;
+            padding: 1.6rem 1.6rem;
           }
           .brands-mobile-slot-text {
             font-family: var(--font-custom-xh);
@@ -328,14 +328,14 @@ export default function BrandSection() {
             color: #131313;
             display: block;
             white-space: nowrap;
-            font-size: clamp(14px, 3.5vw, 20px) !important;
+            font-size: clamp(1.4rem, 3.5vw, 2rem) !important;
           }
         }
 
         /* Tablets (600–1023): slightly larger text */
-        @media (min-width: 600px) and (max-width: 1023px) {
+        @media (min-width: 37.5em) and (max-width: 63.9375em) {
           .brands-mobile-logo-wrap {
-            max-width: clamp(343px, 70vw, 560px);
+            max-width: clamp(34.3rem, 70vw, 56rem);
           }
         }
       `}</style>
