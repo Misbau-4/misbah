@@ -132,7 +132,7 @@ export default function ExperienceSection() {
 
         {/* Experience list */}
         <div className="exp-mobile-list">
-          {EXPERIENCES.map((exp, i) => (
+          {EXPERIENCES.map((exp) => (
             <div key={exp.title} className="exp-mobile-item">
               <span className="exp-mobile-title">{exp.title}</span>
               <span className="exp-mobile-duration">{exp.duration}</span>

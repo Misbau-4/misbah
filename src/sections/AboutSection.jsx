@@ -197,7 +197,7 @@ export default function AboutSection() {
 
     /* ── Desktop: horizontal scroll pinning ────────────── */
     mm.add(
-      '(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)',
+      '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
       () => {
         const getScrollAmount = () => {
           if (!containerRef.current) return 0
@@ -303,7 +303,7 @@ export default function AboutSection() {
 
     /* ── Mobile / Tablet: vertical + scroll reveals ── */
     mm.add(
-      '(max-width: 102.3rem)',
+      '(max-width: 1023px)',
       () => {
         if (containerRef.current) {
           gsap.set(containerRef.current, { clearProps: 'all' })
@@ -427,8 +427,8 @@ export default function AboutSection() {
         /* ============================================= */
         .panel-000-desktop-wrapper {
           display: flex; flex-direction: column; align-items: flex-start;
-          padding: 11.3rem 8rem; gap: 1rem; isolation: isolate;
-          width: 118.5rem; height: 66.2rem; position: relative; flex-shrink: 0;
+          padding: 12.5rem 4rem; gap: 1rem; isolation: isolate;
+          width: 100dvw; height: 66.2rem; position: relative; flex-shrink: 0;
         }
         .frame-000-main {
           display: flex; flex-direction: column; align-items: flex-start;

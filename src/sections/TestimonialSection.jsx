@@ -56,7 +56,7 @@ export default function TestimonialSection() {
 
       const mm = gsap.matchMedia()
 
-      mm.add('(min-width: 102.4rem) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
         gsap.set(cards,    { autoAlpha: 0, y: 40 })
         gsap.set(cards[0], { autoAlpha: 1, y: 0  })
 
@@ -80,7 +80,7 @@ export default function TestimonialSection() {
       })
 
       /* Mobile: GSAP scroll-pinned crossfade ── */
-      mm.add('(max-width: 102.3rem) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add('(max-width: 1023px) and (prefers-reduced-motion: no-preference)', () => {
         if (!mCards.length) return
         
         gsap.set(mCards,    { autoAlpha: 0, y: 40 })

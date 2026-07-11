@@ -50,7 +50,7 @@ function getCategoryCount(cat) {
 }
 
 /* ── Project card ── */
-function ProjectCard({ project, mobile = false }) {
+function ProjectCard({ project }) {
   const cardRef = useRef(null)
 
   const handleEnter = () => {

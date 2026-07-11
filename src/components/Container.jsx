@@ -20,6 +20,7 @@
  */
 
 export default function Container({
+  // eslint-disable-next-line no-unused-vars
   as: Tag = 'div',
   className = '',
   children,

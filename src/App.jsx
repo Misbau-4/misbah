@@ -49,9 +49,9 @@ function App() {
         <AboutSection />
 
         {/* Hero — headline + cursor preview (desktop only) */}
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <HeroSection />
-        </div>
+        </div> */}
 
         {/* Work / Selected Projects */}
         <WorkSection />
@@ -76,7 +76,7 @@ function App() {
         {/* BentoGallery + ToolStack */}
         <div className="bento-toolstack-wrapper">
           <BentoGallerySection />
-          <ToolStackSection />
+          {/* <ToolStackSection /> */}
         </div>
 
         {/* Color Cards — bounce animation (desktop only) */}
